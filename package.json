@@ -1,20 +1,20 @@
 {
-    "name": "application-name",
+    "name": "LemonBase-Webkit",
     "main": "app/index.html",
     "version": "0.0.1",
     "window": {
-        "frame": false,
-        "toolbar": false,
+//        "frame": false,
+//        "toolbar": false,
         "width": 1200,
-        "height": 700,
-        "icon": "icon.png",
-        "min_width": 800,
-        "min_height": 600
+        "height": 700
+//        "icon": "icon.png",
+//        "min_width": 800,
+//        "min_height": 600
     },
     "chromium-args": "--enable-threaded-compositing",
-    "node-remote": "localhost",
-    "dependencies": {
-        "sequelize": "*",
-        "edge": "*"
-    }
+    "node-remote": "localhost"
+//    "dependencies": {
+//        "sequelize": "*",
+//        "edge": "*"
+//    }
 }
