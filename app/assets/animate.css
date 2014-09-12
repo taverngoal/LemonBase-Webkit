@@ -1,0 +1,15 @@
+#logo {
+    -webkit-animation: logo_start 2s infinite both ;
+    position:relative;opacity: 0;
+}
+
+@-webkit-keyframes logo_start {
+    0% {top:0; left:0}
+    5%{opacity: 1;}
+    40% {opacity: 0; border-width: 5px }
+    50% {width:60px; height:60px; left:-15px; top:-15px;}
+    100%{top:0; left:0;width:30px; height:30px;}
+}
+
+
+header .actionbar li:hover { color:#fff; background: #ac2925 }
