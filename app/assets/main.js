@@ -9,10 +9,10 @@ window.maximize = function() {
         win.unmaximize();
     else
         win.maximize();
-}
+};
 
 window.quit = function () {
     win.close(true);
     gui.App.quit();
-}
+};
 

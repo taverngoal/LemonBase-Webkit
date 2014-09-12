@@ -29,16 +29,20 @@
 <body class="container-fluid">
 <div class="row">
     <header>
-        <i id="logo"></i>
+        <div id="logo">
+            <div class="cycle"></div>
+            <div class="icon"><i class="fa-bars fa"></i></div>
+        </div>
         <ul class="actionbar">
-            <li onclick="win.reload()"><i class="fa fa-circle-o-notch"></i></li>
-            <li onclick="win.showDevTools()"><i class="fa fa-terminal"></i></li>
+            <li onclick="win.reload()"><i class="fa fa-refresh"></i></li>
+            <li onclick="win.showDevTools()"><i class="fa fa-cog"></i></li>
             <li onclick="maximize()"><i class="fa fa-minus"></i></li>
             <li class="close_button" onclick="quit()"><i class="fa fa-times"></i></li>
         </ul>
     </header>
     <section>
-        <div></div>
+        <div class="col-sm-3" id></div>
+        <div class="col-sm-9"></div>
     </section>
     <footer></footer>
 </div>
