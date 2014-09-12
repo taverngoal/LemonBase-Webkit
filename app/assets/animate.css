@@ -12,4 +12,5 @@
 }
 
 
-header .actionbar li:hover { color:#fff; background: #ac2925 }
+header .actionbar li:hover { color:#fff; background: #269abc }
+header .actionbar li.close_button:hover { color:#fff; background: #ac2925 }

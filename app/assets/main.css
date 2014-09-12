@@ -6,9 +6,11 @@ header {
     -webkit-user-select: none;
 }
 
-header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; font-size:18px; color:#aaa  }
-    header .actionbar li { display: inline; width:20px; height:30px; padding:0 5px; transition: color 1s; background: #fff }
-        header .actionbar li.close_button { transition: background 1s  }
+header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; font-size:18px; color:#aaa;  -webkit-app-region: no-drag;
+    -webkit-user-select: none;   }
+    header .actionbar li { display: inline-block; width:30px; height:30px; text-align: center; transition: color 1s;
+        background: #fff; float: left; cursor:pointer }
+        header .actionbar li { transition: background 1s linear  }
 
 #logo {
     float:left;
