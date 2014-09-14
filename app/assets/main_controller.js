@@ -144,11 +144,11 @@ angular.module("LemonerTerminal", ["ngRoute"])
                                 type = "high";
                                 $this.$high_data.unshift(ms)
                             }
-                            $this.$data.unshift({value: ms, type: type});
+                            $this.$data.unshift({value: ms, type: type, time: Date.now().toString()});
                             $scope.$$phase || $scope.$apply();
                         }
                     );
-                }, 1000, this.$obj.count == 0 ? undefined : this.$obj.count)
+                }, this.$obj.interval, this.$obj.count == 0 ? undefined : this.$obj.count)
             };
             this.$get = function () {
                 return this;
@@ -162,7 +162,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
             obj._ping();
             $scope.ping_array.unshift(obj.$get());
             $scope.Ping_Click(obj);
-            $scope.link = {address: "127.0.0.1", count: 4, high_ping: 200}
+            $scope.link = {address: "127.0.0.1", count: 4, high_ping: 200, interval: 1000}
         };
 
         $scope.Ping_Click = function (p) {
@@ -171,7 +171,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
 
         $scope.Close = function (p) {
             $scope.ping_array.remove(p);
-            $interval.cancel(p.$handle)
+            $interval.cancel(p.$handle);
             $scope.active_p = {};
         }
     }
