@@ -3,14 +3,19 @@
  */
 angular.module("LemonerTerminal", ["ngRoute"])
     .config(["$routeProvider", function ($routeProvider) {
-        $routeProvider.when('/ssh', {
-            templateUrl: 'views/ssh.html',
-            controller: 'SSH'
-        })
-        $routeProvider.when('/telnet', {
-            templateUrl: 'views/telnet.html',
-            controller: 'Telnet'
-        })
+        $routeProvider
+            .when('/ssh', {
+                templateUrl: 'views/ssh.html',
+                controller: 'SSH'
+            })
+            .when('/telnet', {
+                templateUrl: 'views/telnet.html',
+                controller: 'Telnet'
+            })
+            .when('/ping', {
+                templateUrl: 'views/ping.html',
+                controller: 'Ping'
+            })
     }])
     .controller("Home", ["$scope", function ($scope) {
 
@@ -29,6 +34,10 @@ angular.module("LemonerTerminal", ["ngRoute"])
             $scope.term.on('data', function (data) {
                 if ($scope.conn.enable)
                     $scope.conn.send(data);
+            });
+
+            process.on('uncaughtException', function (e) {
+                $scope.term.write("\r\n" + e.code + "::" + e.message + "\r\n")
             });
         };
         $scope.Link = function () {
@@ -92,7 +101,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
             });
 
             $scope.conn.on('timeout', function () {
-                console.log('socket timeout!')
+                console.log('socket timeout!');
                 $scope.conn.end();
             });
 
@@ -113,4 +122,58 @@ angular.module("LemonerTerminal", ["ngRoute"])
             })
         }
     }])
+    .controller("Ping", ["$scope", "$rootScope", "$interval", function ($scope, $rootScope, $interval) {
+        $rootScope.module = "ping";
+        $scope.ping_obj = function (obj) {
+            this.$obj = obj;
+            this.$data = [];    //所有ping
+            this.$high_data = [];   //高延迟ping
+            this.$error_data = [];  //错误ping
+            this.$handle = null;  //循环的句柄
+            var $this = this;
+            this._ping = function () {
+                $interval(function () {
+                    $this.$handle = window.ping($this.$obj.address, function (err, ms) {
+                            var type = "low";
+                            if (err) {
+                                type = "error";
+                                ms = "Time Out or Error Address";
+                                $this.$error_data.unshift(ms)
+                            }
+                            if (angular.isNumber(ms) && ms > $this.$data.high_ping) {
+                                type = "high";
+                                $this.$high_data.unshift(ms)
+                            }
+                            $this.$data.unshift({value: ms, type: type});
+                            $scope.$$phase || $scope.$apply();
+                        }
+                    );
+                }, 1000, this.$obj.count == 0 ? undefined : this.$obj.count)
+            };
+            this.$get = function () {
+                return this;
+            };
+        };
+
+        $scope.ping_array = [];
+        $scope.Ping = function (obj) {
+
+            obj = new $scope.ping_obj(obj);
+            obj._ping();
+            $scope.ping_array.unshift(obj.$get());
+            $scope.Ping_Click(obj);
+            $scope.link = {address: "127.0.0.1", count: 4, high_ping: 200}
+        };
+
+        $scope.Ping_Click = function (p) {
+            $scope.active_p = p;
+        };
+
+        $scope.Close = function (p) {
+            $scope.ping_array.remove(p);
+            $interval.cancel(p.$handle)
+            $scope.active_p = {};
+        }
+    }
+    ])
 ;

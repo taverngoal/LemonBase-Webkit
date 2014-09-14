@@ -37,9 +37,14 @@ header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; color:
 #logo .icon { position: absolute; left:18px; top:16px; font-size:32px; color:#ffcc00; }
 
 #NavBar { margin-top: 50px; height: 90%;  }
+    #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
 #Content { height: 100%; margin-top:15px}
     #Content .terminal {height: 100%}
         #Content .terminal .content { padding:5px 5px; background: #f3f3f3; height: 100%; border-radius: 5px; border:1px solid #efefef; overflow-y:auto; }
     #Content .setting{ background: #f3f3f3; height: 100%; border-radius: 5px; padding-top: 20px }
 
-ul.nav-pills>li a{ transition:background 0.3s;  }
+#ping_view{}
+    #ping_view .tab-content{padding-top: 5px; }
+        #ping_view .tab-content .alert{ padding: 5px 10px; margin-bottom: 5px }
+    #ping_view .nav li a{
+        cursor: pointer;}

@@ -48,7 +48,8 @@
                         class="fa fa-fw fa-terminal"></i>&nbsp;SSH</a></li>
                 <li ng-class="{ active: module=='telnet' }"><a href="#/telnet"><i class="fa fa-fw fa-code"></i>&nbsp;Telnet</a>
                 </li>
-                <li><a><i class="fa fa-fw fa-flash"></i>&nbsp;Ping</a></li>
+                <li ng-class="{ active: module=='ping' }"><a href="#/ping"><i
+                        class="fa fa-fw fa-flash"></i>&nbsp;Ping</a></li>
             </ul>
         </div>
         <div class="col-sm-9" id="Content" ng-view></div>
