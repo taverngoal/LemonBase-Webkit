@@ -1,10 +1,12 @@
 /**
  * Created by lol on 2014/9/12.
  */
+window.ssh = require("ssh2");
+window.telnet = require("telnet-client");
 window.gui = require('nw.gui');
 window.win = gui.Window.get();
 
-window.maximize = function() {
+window.maximize = function () {
     if (win.isFullscreen)
         win.unmaximize();
     else
@@ -13,6 +15,5 @@ window.maximize = function() {
 
 window.quit = function () {
     win.close(true);
-    gui.App.quit();
 };
 
