@@ -140,7 +140,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
                                 ms = "Time Out or Error Address";
                                 $this.$error_data.unshift(ms)
                             }
-                            if (angular.isNumber(ms) && ms > $this.$data.high_ping) {
+                            if (ms > $this.$obj.high_ping) {
                                 type = "high";
                                 $this.$high_data.unshift(ms)
                             }
