@@ -32,8 +32,8 @@
             <input type="file" class="form-control" id="key" ng-model="link.psd" placeholder="文件" disabled
                    ng-init="link.psd='Tavern1001'" required>
         </div>
-        <button type="submit" class="btn btn-primary" ng-hide="conn.enable" ng-class="{inverse:linkForm.$invalid,' btn-primary':linkForm.$valid}"
+        <button type="submit" class="btn btn-primary pull-right" ng-hide="conn.enable" ng-class="{inverse:linkForm.$invalid,' btn-primary':linkForm.$valid}"
                 ng-click="Link()" ng-disabled="linkForm.$invalid"><i class="fa fa-link"></i></button>
-        <button type="button" class="btn" ng-show="conn.enable" ng-click="conn.end()"><i class="fa fa-unlink"></i></button>
+        <button type="button" class="btn btn-danger pull-right" ng-show="conn.enable" ng-click="conn.end()"><i class="fa fa-unlink"></i></button>
     </form>
 </div>

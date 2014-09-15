@@ -29,7 +29,3 @@ Array.prototype.remove = function (obj) {
             return this.splice(index, 1);
     }
 };
-
-$(function(){
-    document.body.onselectstart = function () { return false };
-});

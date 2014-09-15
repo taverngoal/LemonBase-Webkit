@@ -1,4 +1,10 @@
-body, html {height:100%; overflow: hidden; border-radius: 5px}
+@font-face {
+    font-family: 'Mono';
+    src: url('./Droid Sans Mono.ttf') format('truetype');
+}
+
+body, html {height:100%; overflow: hidden; border-radius: 5px; -webkit-user-select: none; }
+
 header {
     height: 30px;
     line-height:30px;
@@ -11,7 +17,7 @@ header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; color:
     -webkit-user-select: none;   }
     header .actionbar li { display: inline-block; width:30px; height:30px; text-align: center; transition: color 1s;
         background: #fff; float: left; cursor:pointer }
-        header .actionbar li { transition: background 1s linear  }
+        header .actionbar li { transition: background 1s linear }
 
 .reverse-video {
     color: #f0f0f0;
@@ -39,8 +45,8 @@ header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; color:
 #NavBar { margin-top: 50px; height: 90%;  }
     #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
 #Content { height: 100%; margin-top:15px}
-    #Content .terminal {height: 100%}
-        #Content .terminal .content { padding:5px 5px; background: #f3f3f3; height: 100%; border-radius: 5px; border:1px solid #efefef; overflow-y:auto; }
+    #Content > .terminal {height: 100%; font-family: 'Mono' serif; font-size: 12px !important ;  -webkit-user-select:text;}
+        #Content > .terminal .content { padding:5px 5px; background: #f3f3f3; height: 100%; border-radius: 5px; border:1px solid #efefef; overflow-y:auto; }
     #Content .setting{ background: #f3f3f3; height: 100%; border-radius: 5px; padding-top: 20px }
 
 #ping_view{ height:100%}

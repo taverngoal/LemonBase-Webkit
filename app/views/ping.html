@@ -38,7 +38,7 @@
                        ng-init="link.interval=1000" ng-pattern="/\d+/" required>
             </div>
 
-            <button type="submit" class="btn btn-primary" ng-hide="conn.enable" ng-disabled="linkForm.$invalid"
+            <button type="submit" class="btn btn-primary pull-right" ng-hide="conn.enable" ng-disabled="linkForm.$invalid"
                     ng-class="{inverse:linkForm.$invalid,' btn-primary':linkForm.$valid}"
                     ng-click="Ping(link)"><i class="fa fa-plus"></i></button>
         </form>
