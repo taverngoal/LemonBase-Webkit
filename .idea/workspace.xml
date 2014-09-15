@@ -2,153 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="059560a2-6224-46ff-b503-229db97fadfd" name="Default" comment="a commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/Droid Sans Mono.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/util/pagent.exe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/raw.exp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/raw.pdb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/vc120.pdb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/temp/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/.hgignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/.hgtags.orig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/.hgtags" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/string_decoder/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/CL.read.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/CL.write.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/Channel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/Connection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/string_decoder/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/streamsearch/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/LemonBase-Webkit.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/LemonBase_Webkit_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/Parser.constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/Parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/core-util-is/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/isarray/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/string_decoder/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/streamsearch/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/SFTP/SFTPv3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/SFTP/Stats.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/TODO" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/lib/_stream_duplex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/lib/_stream_passthrough.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/lib/_stream_readable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/lib/_stream_transform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/lib/_stream_writable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/agent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/authorized_keys" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/banner" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/isarray/build/build.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/util/build_pagent.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/cl.command.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/isarray/component.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/test/connect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/duplex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/ber/errors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/core-util-is/float.patch" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_dsa.pub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_dsa" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_rsa.bad.pub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_rsa.bad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_rsa.pub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/id_rsa" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/ber/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/isarray/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/string_decoder/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/inherits.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/inherits_browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/keyParser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/link.command.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/link.read.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/link.write.1.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/test/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/core-util-is/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/isarray/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/string_decoder/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/streamsearch/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/util/pagent.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/passthrough.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping-packet-size.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping-response-time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping-retries-0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping-ttl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping6-ttl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/ping6.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/raw.lastbuildstate" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.tlog/raw.write.1u.tlog" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/readable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/ber/reader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/tst/ber/reader.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/examples/sample.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/streamsearch/lib/sbmh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/test/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/ssh_host_rsa_key.pub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/ssh_host_rsa_key" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/fixtures/sshd_config" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/lib/stuff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/telnet-client/lib/telnet-client.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/test-integration-sftp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/test-integration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/test-keyparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/inherits/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/test/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/example/trace-route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/transform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/ber/types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/core-util-is/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/node_modules/core-util-is/lib/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/lib/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/readable-stream/writable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/lib/ber/writer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/ssh2/node_modules/asn1/tst/ber/writer.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/raw.node" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/raw.node" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.obj" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/Release/obj/raw/raw.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/binding.sln" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/binding.sln" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/config.gypi" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/config.gypi" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/main.css" afterPath="$PROJECT_DIR$/app/assets/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/main.js" afterPath="$PROJECT_DIR$/app/assets/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/main_controller.js" afterPath="$PROJECT_DIR$/app/assets/main_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ping.html" afterPath="$PROJECT_DIR$/app/views/ping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/raw.vcxproj" afterPath="$PROJECT_DIR$/node_modules/pinger/node_modules/net-ping/node_modules/raw-socket/build/raw.vcxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ssh.html" afterPath="$PROJECT_DIR$/app/views/ssh.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LemonBase-Webkit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -181,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.964285" vertical-offset="513" max-vertical-offset="1254">
-              <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.4530303" vertical-offset="423" max-vertical-offset="1235">
+              <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -194,8 +52,8 @@
       <file leaf-file-name="ssh.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/ssh.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.535715" vertical-offset="175" max-vertical-offset="836">
-              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+            <state vertical-scroll-proportion="-3.9285715" vertical-offset="175" max-vertical-offset="836">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -204,8 +62,8 @@
       <file leaf-file-name="main_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/main_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2845" max-vertical-offset="3534">
-              <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="642" max-vertical-offset="3762">
+              <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -224,18 +82,8 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1159">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stuff.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/node_modules/pinger/lib/stuff.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454">
-              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+              <caret line="5" column="185" selection-start-line="5" selection-start-column="185" selection-end-line="5" selection-end-column="185" />
               <folding />
             </state>
           </provider>
@@ -244,8 +92,8 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="703">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="741">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -280,11 +128,11 @@
         <option value="$PROJECT_DIR$/app/assets/animate.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/views/ping.html" />
+        <option value="$PROJECT_DIR$/app/assets/main.js" />
         <option value="$PROJECT_DIR$/app/views/ssh.html" />
         <option value="$PROJECT_DIR$/app/assets/main_controller.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/assets/main.js" />
         <option value="$PROJECT_DIR$/app/assets/main.css" />
+        <option value="$PROJECT_DIR$/app/index.html" />
       </list>
     </option>
   </component>
@@ -405,6 +253,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LemonBase-Webkit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LemonBase-Webkit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -506,15 +372,20 @@
       <created>1410516515741</created>
       <updated>1410516515741</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="a commit">
+      <created>1410773094930</created>
+      <updated>1410773094930</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32729805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32775453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -527,7 +398,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -770,50 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/animate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ping.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.142857" vertical-offset="308" max-vertical-offset="969">
           <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ssh.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.535715" vertical-offset="175" max-vertical-offset="836">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/main_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2845" max-vertical-offset="3534">
-          <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.964285" vertical-offset="513" max-vertical-offset="1254">
-          <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="703">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -826,18 +656,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/main.css">
+    <entry file="file://$PROJECT_DIR$/node_modules/pinger/lib/stuff.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1159">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="453">
+          <caret line="0" column="19" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/pinger/lib/stuff.js">
+    <entry file="file://$PROJECT_DIR$/app/views/ssh.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+        <state vertical-scroll-proportion="-3.9285715" vertical-offset="175" max-vertical-offset="836">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/animate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/main_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="642" max-vertical-offset="3762">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="741">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+          <caret line="5" column="185" selection-start-line="5" selection-start-column="185" selection-end-line="5" selection-end-column="185" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4530303" vertical-offset="423" max-vertical-offset="1235">
+          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
           <folding />
         </state>
       </provider>

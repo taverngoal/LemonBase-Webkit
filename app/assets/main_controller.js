@@ -22,65 +22,77 @@ angular.module("LemonerTerminal", ["ngRoute"])
     }])
     .controller("SSH", ["$scope", "$rootScope", "$timeout", function ($scope, $rootScope, $timeout) {
         $rootScope.module = "ssh";
+        //初始化传输流
+        $scope.StreamInit = function (err, stream) {
+            $scope.conn.send = function (content) {     //发送信息
+                stream.write(content);
+            };
+            if (err)                                    //如果有错则显示到控制台
+                $scope.term.write(err.toString());
+            stream.on('exit', function (code, signal) {//当ssh退出
+                $scope.term.write('\r\nStream :: exit :: code: ' + code);
+                $scope.conn.enable = false;
+                $scope.$$phase || $scope.$apply();
+            }).on('close', function () {                //当链接关闭
+                $scope.term.write("\r\nStream :: Closed");
+                $scope.conn.end();
+                $scope.conn.enable = false;
+                $scope.$$phase || $scope.$apply();
+            }).on('data', function (data) {
+                $scope.term.write(data.toString());         //有数据时写入数据
+            }).stderr.on('data', function (data) {
+                    $scope.term.write('\r\nSTDERR: ' + data);
+                    $scope.$$phase || $scope.$apply();
+                });
+            $scope.$$phase || $scope.$apply();
+        };
+        //初始化控制台
         $scope.TermInit = function () {
-            Terminal.colors[256] = '';
-            Terminal.colors[257] = '#444';
+            Terminal.colors[256] = '#336699';               //背景色
+            Terminal.colors[257] = '#fff';           //前景色
+            console.log(parseInt($("#Content > .terminal .content").height() / 17));
             $scope.term = new Terminal({
                 cols: 80,
-                rows: parseInt($(".terminal .content").height() / 20),
+                rows: parseInt($("#Content > .terminal .content").height() / 17),
                 screenKeys: true
             });
-            $scope.term.open($(".terminal .content")[0]);
-            $scope.term.on('data', function (data) {
+            $scope.term.open($("#Content >.terminal .content")[0]);
+            $scope.term.on('data', function (data) {        //控制台有数据时发送数据
                 if ($scope.conn.enable)
                     $scope.conn.send(data);
             });
-
             process.on('uncaughtException', function (e) {
                 $scope.term.write("\r\n" + e.code + "::" + e.message + "\r\n")
             });
         };
+        //初始化连接
         $scope.Link = function () {
             $scope.TermInit();
             $scope.term.write('Connecting...\r\n');
             $scope.conn = new window.ssh();
+            $scope.conn.enable = true;  //链接状态
+            $scope.Conn();
+        };
+        //链接服务器
+        $scope.Conn = function () {
+            $scope.conn.on("close", function () {
+                $scope.conn.enable = false;
+                $scope.term.write("\r\nConnect :: Closed");
+                $scope.$$phase || $scope.$apply();
+            });
             $scope.conn.on('ready', function () {
-                $scope.conn.enable = true;
-                $scope.conn.shell({}, function (err, stream) {
-                    $scope.conn.send = function (content) {
-                        stream.write(content);
-                    };
-                    if (err)
-                        $scope.term.write(err.toString());
-                    stream.on('exit', function (code, signal) {
-                        $scope.term.write('\r\nStream :: exit :: code: ' + code + ', signal: ' + signal);
-                        $scope.conn.enable = false;
-                        $scope.$$phase || $scope.$apply();
-                    }).on('close', function () {
-                        $scope.term.write("\r\nConnection :: Closed")
-                        $scope.conn.end();
-                        $scope.conn.enable = false;
-                    }).on('data', function (data) {
-                        $scope.term.write(data.toString());
-                    }).stderr.on('data', function (data) {
-                            $scope.term.write('\r\nSTDERR: ' + data);
-                            $scope.$$phase || $scope.$apply();
-                        });
-                    $scope.$$phase || $scope.$apply();
+                $scope.conn.shell({}, function (err, stream) {  //开启链接ssh
+                    $scope.StreamInit(err, stream);
                 });
             });
-            try {
-                $scope.conn.connect({
-                    host: $scope.link.address,
-                    port: $scope.link.port,
-                    username: $scope.link.user,
-                    password: $scope.link.psd,
-                    readyTimeout: 60000
-                });
-            } catch (e) {
-                $scope.term.write(e.message)
-            }
-        };
+            $scope.conn.connect({
+                host: $scope.link.address,
+                port: $scope.link.port,
+                username: $scope.link.user,
+                password: $scope.link.psd,
+                readyTimeout: 60000
+            });
+        }
     }])
     .controller("Telnet", ["$scope", "$rootScope", function ($scope, $rootScope) {
         $rootScope.module = "telnet";

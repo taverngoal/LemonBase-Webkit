@@ -29,3 +29,6 @@ Array.prototype.remove = function (obj) {
             return this.splice(index, 1);
     }
 };
+process.on('uncaughtException', function (e) {
+    alert(e.message)
+});
