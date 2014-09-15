@@ -28,4 +28,8 @@ Array.prototype.remove = function (obj) {
         if (index > -1)
             return this.splice(index, 1);
     }
-}
+};
+
+$(function(){
+    document.body.onselectstart = function () { return false };
+});
