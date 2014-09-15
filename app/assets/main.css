@@ -2,6 +2,7 @@
     font-family: 'Mono';
     src: url('./Droid Sans Mono.ttf') format('truetype');
 }
+* {transition: background 0.5s; }
 
 body, html {height:100%; overflow: hidden; border-radius: 5px; -webkit-user-select: none; font-family: "Helvetica Neue", "Helvetica", Helvetica, 'Microsoft YaHei UI' ,'Microsoft YaHei', sans-serif }
 
@@ -16,8 +17,9 @@ header {
 header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; color:#aaa;  -webkit-app-region: no-drag;
     -webkit-user-select: none;   }
     header .actionbar li { display: inline-block; width:30px; height:30px; text-align: center; transition: color 1s;
-        background: #fff; float: left; cursor:pointer }
+         float: left; cursor:pointer }
         header .actionbar li { transition: background 1s linear }
+form label { font-family: 'Helvetica'; font-weight: normal }
 
 .reverse-video {
     color: #f0f0f0;
@@ -46,9 +48,9 @@ header .actionbar{ margin:0; padding: 0;  list-style: none; float: right; color:
     #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
 #Content { height: 100%; margin-top:15px}
     #Content  .terminal { height: 100%; }
-    #Content .terminal .terminal { padding: 5px }
+    #Content .terminal .terminal { padding: 5px; background-color: #336699;color: #fff }
     #Content > .terminal { font-family: 'Mono' serif; font-size: 12px !important ;  -webkit-user-select:text;}
-        #Content > .terminal .content { background: #f3f3f3; height: 100%; border-radius: 5px; border:1px solid #efefef; overflow-y:auto; }
+        #Content > .terminal .content {  height: 100%; border-radius: 5px; overflow:hidden; }
     #Content .setting{ background: #f3f3f3; height: 100%; border-radius: 5px; padding-top: 20px }
 
 #ping_view{ height:100%}

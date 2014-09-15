@@ -17,25 +17,25 @@
     <div class="setting col-sm-3">
         <form role="form" name="linkForm">
             <div class="form-group">
-                <label for="address">目标地址</label>
-                <input type="text" class="form-control" id="address" ng-model="link.address" placeholder="目标地址"
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" ng-model="link.address" placeholder="Address"
                        ng-init="link.address='127.0.0.1'" required>
             </div>
             <div class="form-group">
-                <label for="count">次数（0为不限制）</label>
-                <input type="number" class="form-control" id="count" ng-model="link.count" placeholder="次数"
-                       ng-init="link.count=4" ng-pattern="/\d+/" required>
+                <label for="count">Limit (0 is Unlimited)</label>
+                <input type="text" class="form-control" id="count" ng-model="link.count" placeholder="Limit"
+                       ng-init="link.count=4" ng-pattern="/^[0-9]+$/" required>
             </div>
             <div class="form-group">
-                <label for="interval">间隔（单位：ms）</label>
-                <input type="number" class="form-control" id="interval" ng-model="link.interval" placeholder="高延迟"
-                       ng-init="link.high_ping=200" ng-pattern="/\d+/" required>
+                <label for="interval">Interval (ms)</label>
+                <input type="text" class="form-control" id="interval" ng-model="link.interval" placeholder="Interval"
+                       ng-init="link.high_ping=200" ng-pattern="/^[0-9]+$/" required>
             </div>
 
             <div class="form-group">
-                <label for="high_ping">设置高延迟（单位：ms）</label>
-                <input type="number" class="form-control" id="high_ping" ng-model="link.high_ping" placeholder="间隔"
-                       ng-init="link.interval=1000" ng-pattern="/\d+/" required>
+                <label for="high_ping">TimeOut (ms)</label>
+                <input type="text" class="form-control" id="high_ping" ng-model="link.high_ping" placeholder="Time Out"
+                       ng-init="link.interval=1000" ng-pattern="/^[0-9]+$/" required>
             </div>
 
             <button type="submit" class="btn btn-primary pull-right" ng-hide="conn.enable" ng-disabled="linkForm.$invalid"

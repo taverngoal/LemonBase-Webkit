@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="LemonerTerminal">
+<html ng-app="LemonerTerminal" ng-controller="Home">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="vendor/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/animate.css">
+    <link rel="stylesheet" data-ng-href="assets/theme/{{theme}}">
     <script src="vendor/js/jquery-2.1.1.min.js"></script>
     <script src="vendor/js/angular.min.js"></script>
     <script src="vendor/js/angular-resource.min.js"></script>
@@ -27,7 +28,7 @@
         //        }
     </script>
 </head>
-<body class="container-fluid" ng-controller="Home">
+<body class="container-fluid">
 <div class="row" id="wrap">
     <header>
         <div id="logo">
@@ -35,6 +36,9 @@
             <div class="icon"><i class="fa-bars fa"></i></div>
         </div>
         <ul class="actionbar">
+            <li ng-click="ThemeChange('default')"
+                style="background: url('assets/img/default.png') center no-repeat;"></li>
+            <li ng-click="ThemeChange('dark')" style="background: url('assets/img/dark.png') center no-repeat ;"></li>
             <li onclick="win.reload()"><i class="fa fa-refresh"></i></li>
             <li onclick="win.showDevTools()"><i class="fa fa-cog"></i></li>
             <li onclick="win.minimize()"><i class="fa fa-minus"></i></li>

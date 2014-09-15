@@ -1,0 +1,19 @@
+body{
+    background: #282828;
+    color:#ddd
+}
+a{ color:#ffcc00 }
+input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
+
+#Content .setting{ background: transparent; height: 100%; border-radius: 5px; padding-top: 20px }
+header .actionbar li{ background: transparent; color:#fefefe }
+
+#Content .terminal .terminal { padding: 5px; background-color: transparent;color: #CC9900 }
+#Content .nav>li>a { padding:5px 5px; }
+#Content .nav-tabs>li>a { border-radius: 0 }
+#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {background-color: #ffcc00; border:0; color:#666}
+/*.nav>li>a:hover { background: #428bca; color:#fefefe}*/
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+    color: #fefefe;    background-color: #336699;
+}

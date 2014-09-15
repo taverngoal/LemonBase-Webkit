@@ -18,10 +18,20 @@ angular.module("LemonerTerminal", ["ngRoute"])
             })
     }])
     .controller("Home", ["$scope", function ($scope) {
+        $scope.themes = {'default': '', dark: 'black_orange.css'};
+        $scope.theme = $scope.themes.dark;
+
+        $scope.ThemeChange = function (theme) {
+            $scope.theme = $scope.themes[theme]
+        }
 
     }])
     .controller("SSH", ["$scope", "$rootScope", "$timeout", function ($scope, $rootScope, $timeout) {
         $rootScope.module = "ssh";
+        $("#key").change(function () {
+            $scope.link.key = $(this).val();
+            $scope.$$phase || $scope.$apply();
+        });
         //初始化传输流
         $scope.StreamInit = function (err, stream) {
             $scope.conn.send = function (content) {     //发送信息
@@ -48,8 +58,8 @@ angular.module("LemonerTerminal", ["ngRoute"])
         };
         //初始化控制台
         $scope.TermInit = function () {
-            Terminal.colors[256] = '#336699';               //背景色
-            Terminal.colors[257] = '#fff';           //前景色
+            Terminal.colors[256] = '';               //背景色
+            Terminal.colors[257] = '';           //前景色
             console.log(parseInt($("#Content > .terminal .content").height() / 17));
             $scope.term = new Terminal({
                 cols: 80,
@@ -65,16 +75,20 @@ angular.module("LemonerTerminal", ["ngRoute"])
                 $scope.term.write("\r\n" + e.code + "::" + e.message + "\r\n")
             });
         };
-        //初始化连接
-        $scope.Link = function () {
-            $scope.TermInit();
+        $scope.TermInit();
+        //初始化连接    若传了key则是key登录
+        $scope.Link = function (key) {
             $scope.term.write('Connecting...\r\n');
             $scope.conn = new window.ssh();
             $scope.conn.enable = true;  //链接状态
-            $scope.Conn();
+            var key_file = undefined;
+            if (require('fs').existsSync($(key).val())) {
+                key_file = require('fs').readFileSync($(key).val())
+            }
+            $scope.Conn(key_file);
         };
         //链接服务器
-        $scope.Conn = function () {
+        $scope.Conn = function (key_file) {
             $scope.conn.on("close", function () {
                 $scope.conn.enable = false;
                 $scope.term.write("\r\nConnect :: Closed");
@@ -85,13 +99,29 @@ angular.module("LemonerTerminal", ["ngRoute"])
                     $scope.StreamInit(err, stream);
                 });
             });
-            $scope.conn.connect({
-                host: $scope.link.address,
-                port: $scope.link.port,
-                username: $scope.link.user,
-                password: $scope.link.psd,
-                readyTimeout: 60000
+            $scope.conn.on('error', function (err) {
+                console.log(err);
+                $scope.term.write("\r\n" + err)
             });
+            $scope.conn.on('close', function (hadError) {
+                console.log(hadError)
+            });
+
+            try {
+
+                $scope.conn.connect({
+                    host: $scope.link.address,
+                    port: $scope.link.port,
+                    username: $scope.link.user,
+                    password: !key_file ? $scope.link.psd : undefined,
+                    readyTimeout: 60000,
+                    privateKey: key_file || undefined
+                });
+            }
+            catch (e) {
+                $scope.conn.enable = false;
+                $scope.term.write("\r\n" + e.message)
+            }
         }
     }])
     .controller("Telnet", ["$scope", "$rootScope", function ($scope, $rootScope) {
