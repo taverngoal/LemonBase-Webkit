@@ -9,6 +9,7 @@ input { background: #336699 !important; font-size: 16px !important; color: #fefe
 #Content .setting{ background: transparent; }
 header .actionbar li{ background: transparent; color:#fefefe }
 
+#Content .nav>li{ width: 25%; background: #eee}
 #Content .terminal .terminal { background-color: transparent;color: #CC9900 }
 #Content .nav>li>a { padding:5px 5px; }
 #Content .nav-tabs>li>a { border-radius: 0 }

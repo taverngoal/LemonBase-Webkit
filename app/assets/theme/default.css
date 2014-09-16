@@ -2,8 +2,17 @@
 #logo .cycle {border: 3px solid #ffcc00!important;}
 #Content .setting{ background: #f3f3f3  }
 
+input { border:0 !important; }
 .reverse-video {
     color: #f0f0f0;
     background: #fff;
 }
 #Content .terminal .terminal { background-color: #336699;color: #fff }
+
+#ping_view .ping-obj > span { background: #eee; color:#000;}
+#ping_view .ping-obj > span.address { background: #428bca; color:#fff; }
+
+#Content .nav>li{ width: 25%; background: #eee}
+#Content .nav>li>a { padding:5px 5px; }
+#Content .nav-tabs>li>a { border-radius: 0 }
+#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { background-color: #aaa; border:0; color:#fff}
