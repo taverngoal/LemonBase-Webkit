@@ -172,7 +172,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
             this.$sent = 0;
             this.$received = 0;
             this.$max = 0;
-            this.$min = 0;
+            this.$min = 10000;
             this.$lost = 0;
             this.$loss = 0;
             this.$avg = 0;

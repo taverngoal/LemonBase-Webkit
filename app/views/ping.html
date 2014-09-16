@@ -32,14 +32,24 @@
             </li>
         </ul>
         <div class="tab-content">
-            <div class="ping-obj clearfix">
-                <span class="sent">Sent:{{active_p.$sent}}</span>
-                <span class="received">Received:{{active_p.$received}}</span>
-                <span class="lost">Lost{{active_p.$lost}}</span>
-                <span class="max">Max:{{active_p.$max}}</span>
-                <span class="min">Min:{{active_p.$min}}</span>
-                <span class="avg">Avg:{{active_p.$avg}}</span>
-            </div>
+            <table class="ping-info" cellspacing="1">
+                <tr>
+                    <th>Sent</th>
+                    <th>Received</th>
+                    <th>Lost</th>
+                    <th>Max</th>
+                    <th>Min</th>
+                    <th>Avg</th>
+                </tr>
+                <tr>
+                    <td>{{active_p.$sent}}</td>
+                    <td>{{active_p.$received}}</td>
+                    <td>{{active_p.$lost}}%</td>
+                    <td>{{active_p.$max}}</td>
+                    <td>{{active_p.$min}}</td>
+                    <td>{{active_p.$avg}}</td>
+                </tr>
+            </table>
             <div ng-class="{'alert alert-success':d.type=='low', 'alert alert-warning':d.type=='high','alert alert-danger':d.type=='error'}"
                  ng-repeat="d in active_p.$data | limitTo:20">{{d.time | date: 'HH:mm:ss'}}&nbsp; Ping
                 {{active_p.$obj.address}} :: {{d.value}}ms

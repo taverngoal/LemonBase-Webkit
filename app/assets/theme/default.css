@@ -12,7 +12,9 @@ input { border:0 !important; }
 #ping_view .ping-obj > span { background: #eee; color:#000;}
 #ping_view .ping-obj > span.address { background: #428bca; color:#fff; }
 
-#Content .nav>li{ width: 25%; background: #eee}
-#Content .nav>li>a { padding:5px 5px; }
-#Content .nav-tabs>li>a { border-radius: 0 }
-#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { background-color: #aaa; border:0; color:#fff}
+#Content .nav>li{ width: 33%; margin-bottom: 2px}
+#Content .nav>li>a { padding:5px 5px; background: #ddd; color: #444 }
+#Content .nav-tabs>li>a { border-radius: 5px; border:0 }
+#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { background-color: #999; border:0; color:#fff}
+
+#ping_view .ping-info { background: #428bca; color:#fff; border-radius: 5px }
