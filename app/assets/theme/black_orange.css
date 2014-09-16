@@ -4,11 +4,12 @@ body{
 }
 a{ color:#ffcc00 }
 input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
-
-#Content .setting{ background: transparent; height: 100%; border-radius: 5px; padding-top: 20px }
+#logo .icon {color:#ffcc00;}
+#logo .cycle {border: 3px solid #ffcc00!important;}
+#Content .setting{ background: transparent; }
 header .actionbar li{ background: transparent; color:#fefefe }
 
-#Content .terminal .terminal { padding: 5px; background-color: transparent;color: #CC9900 }
+#Content .terminal .terminal { background-color: transparent;color: #CC9900 }
 #Content .nav>li>a { padding:5px 5px; }
 #Content .nav-tabs>li>a { border-radius: 0 }
 #Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {background-color: #ffcc00; border:0; color:#666}

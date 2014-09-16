@@ -18,10 +18,11 @@ angular.module("LemonerTerminal", ["ngRoute"])
             })
     }])
     .controller("Home", ["$scope", function ($scope) {
-        $scope.themes = {'default': '', dark: 'black_orange.css'};
-        $scope.theme = $scope.themes.dark;
+        $scope.themes = {'default': 'default.css', dark: 'black_orange.css'};
+        $scope.theme = simpleStorage.get('theme') || $scope.themes.dark;
 
         $scope.ThemeChange = function (theme) {
+            simpleStorage.set('theme', $scope.themes[theme]);
             $scope.theme = $scope.themes[theme]
         }
 
@@ -60,7 +61,6 @@ angular.module("LemonerTerminal", ["ngRoute"])
         $scope.TermInit = function () {
             Terminal.colors[256] = '';               //背景色
             Terminal.colors[257] = '';           //前景色
-            console.log(parseInt($("#Content > .terminal .content").height() / 17));
             $scope.term = new Terminal({
                 cols: 80,
                 rows: parseInt($("#Content > .terminal .content").height() / 17),

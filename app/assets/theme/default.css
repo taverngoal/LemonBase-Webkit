@@ -1,0 +1,9 @@
+#logo .icon {color:#ffcc00;}
+#logo .cycle {border: 3px solid #ffcc00!important;}
+#Content .setting{ background: #f3f3f3  }
+
+.reverse-video {
+    color: #f0f0f0;
+    background: #fff;
+}
+#Content .terminal .terminal { background-color: #336699;color: #fff }
