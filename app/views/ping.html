@@ -1,18 +1,30 @@
 <div id="ping_view">
     <div class="col-sm-9">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" ng-repeat="p in ping_array" ng-class="{active:active_p==p}"><a
-                    ng-click="Ping_Click(p)"><i ng-click="Close(p)" class="fa fa-times"></i>&nbsp;{{p.$obj.address}}&nbsp;
-                <span class="label label-success">{{p.$data.length}}</span>
-                <span class="label label-warning">{{p.$high_data.length}}</span>
-                <span class="label label-danger">0</span></a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div ng-class="{'alert alert-success':d.type=='low', 'alert alert-warning':d.type=='high','alert alert-danger':d.type=='error'}"
-                 ng-repeat="d in active_p.$data | limitTo:20">{{d.time | date: 'HH:mm:ss'}}&nbsp; Ping {{active_p.$obj.address}} :: {{d.value}}ms
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-success">Start</button>
+            <button type="button" class="btn btn-warning">Pause</button>
+            <button type="button" class="btn btn-danger">Stop</button>
+        </div>
+        <div class="data-block">
+            <div class="ping-obj"><span class="address">1</span><span class="sent">2</span><span
+                    class="received">3</span><span class="lost">3</span><span class="max">3</span><span
+                    class="min">3</span><span class="avg">1</span><span class="ave">1</span>
+                <p>123123</p>
             </div>
         </div>
+        <!--<ul class="nav nav-tabs" role="tablist">-->
+        <!--<li role="presentation" ng-repeat="p in ping_array" ng-class="{active:active_p==p}"><a-->
+        <!--ng-click="Ping_Click(p)"><i ng-click="Close(p)" class="fa fa-times"></i>&nbsp;{{p.$obj.address}}&nbsp;-->
+        <!--<span class="label label-success">{{p.$data.length}}</span>-->
+        <!--<span class="label label-warning">{{p.$high_data.length}}</span>-->
+        <!--<span class="label label-danger">0</span></a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="tab-content">-->
+        <!--<div ng-class="{'alert alert-success':d.type=='low', 'alert alert-warning':d.type=='high','alert alert-danger':d.type=='error'}"-->
+        <!--ng-repeat="d in active_p.$data | limitTo:20">{{d.time | date: 'HH:mm:ss'}}&nbsp; Ping {{active_p.$obj.address}} :: {{d.value}}ms-->
+        <!--</div>-->
+        <!--</div>-->
     </div>
     <div class="setting col-sm-3">
         <form role="form" name="linkForm">
@@ -38,7 +50,8 @@
                        ng-init="link.interval=1000" ng-pattern="/^[0-9]+$/" required>
             </div>
 
-            <button type="submit" class="btn btn-primary pull-right" ng-hide="conn.enable" ng-disabled="linkForm.$invalid"
+            <button type="submit" class="btn btn-primary pull-right" ng-hide="conn.enable"
+                    ng-disabled="linkForm.$invalid"
                     ng-class="{inverse:linkForm.$invalid,' btn-primary':linkForm.$valid}"
                     ng-click="Ping(link)"><i class="fa fa-plus"></i></button>
         </form>

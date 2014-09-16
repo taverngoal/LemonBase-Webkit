@@ -23,8 +23,7 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
 
 
 #wrap{height:100%;}
-    #wrap section{
-        height: 90%; margin-bottom: 30px}
+    #wrap section{ margin-bottom: 30px}
 #logo { float: left; z-index:1000}
 #logo .cycle {
     border-radius: 80px;
@@ -54,3 +53,7 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
         #ping_view .tab-content .alert{ padding: 5px 10px; margin-bottom: 5px }
     #ping_view .nav li a{ cursor: pointer;}
     #ping_view .setting { height: 100%;  padding-top: 20px}
+
+    #ping_view .data-block { margin-top: 10px;}
+        #ping_view .data-block > .ping-obj {padding: 0 5px; width: 100%;}
+            #ping_view .data-block > .ping-obj > span {display: inline-block;}

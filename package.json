@@ -2,11 +2,14 @@
     "name": "LemonBase-Webkit",
     "main": "app/index.html",
     "version": "0.0.2",
+    "description": "The Tools for Lemoner",
     "window": {
         "frame": false,
         "toolbar": false,
         "width": 1200,
-        "height": 700
+        "height": 700,
+        "min_height": 500,
+        "min_width": 1000
     },
     "chromium-args": "--enable-threaded-compositing",
     "node-remote": "localhost",

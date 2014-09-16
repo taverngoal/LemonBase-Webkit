@@ -19,6 +19,16 @@ window.quit = function () {
 };
 
 
+window.window_resize = function () {
+    $("#wrap section").height(window.innerHeight - 30 - 15 - 15);
+};
+
+$(function () {
+    window_resize();
+    $(window).resize(window_resize)
+});
+
+
 Array.prototype.remove = function (obj) {
     if (typeof obj == "number") {
         return this.splice(obj, 1);
