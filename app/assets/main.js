@@ -40,5 +40,5 @@ Array.prototype.remove = function (obj) {
     }
 };
 process.on('uncaughtException', function (e) {
-    alert(e.message)
+    console.error(e.message)
 });
