@@ -24,11 +24,10 @@
         <!--</div>-->
         <!--</div>-->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" ng-repeat="p in ping_array" ng-class="{active:active_p==p}"><a
-                    ng-click="Ping_Click(p)"><i ng-click="Close(p)" class="fa fa-times"></i>&nbsp;{{p.$obj.address}}&nbsp;
-                <span class="label label-success">{{p.$data.length}}</span>
-                <span class="label label-warning">{{p.$high_data.length}}</span>
-                <span class="label label-danger">0</span></a>
+            <li role="presentation" ng-repeat="p in ping_array" ng-class="{active:active_p==p}">
+                <a ng-click="Ping_Click(p)">&nbsp;{{p.$obj.address}}&nbsp;<div class="pull-right">
+                    <span class="label label-warning">{{p.$high}}</span>
+                    <span class="label label-danger">{{p.$lost}}</span>&nbsp;<i ng-click="Close(p)" class="fa fa-times "></i></div></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -44,10 +43,10 @@
                 <tr>
                     <td>{{active_p.$sent}}</td>
                     <td>{{active_p.$received}}</td>
-                    <td>{{active_p.$lost}}%</td>
-                    <td>{{active_p.$max}}</td>
-                    <td>{{active_p.$min}}</td>
-                    <td>{{active_p.$avg}}</td>
+                    <td>{{active_p.$lost}} %</td>
+                    <td>{{active_p.$max}} ms</td>
+                    <td>{{active_p.$min}} ms</td>
+                    <td>{{active_p.$avg}} ms</td>
                 </tr>
             </table>
             <div ng-class="{'alert alert-success':d.type=='low', 'alert alert-warning':d.type=='high','alert alert-danger':d.type=='error'}"

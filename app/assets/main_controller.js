@@ -26,6 +26,14 @@ angular.module("LemonerTerminal", ["ngRoute"])
             $scope.theme = $scope.themes[theme]
         }
 
+        //当路由更改时，要清空以前的数据
+        $scope.$on('$routeChangeStart', function (obj, end, start) {
+            if (start&&start.scope&&start.scope.conn) {
+                start.scope.conn.end();
+                console.log('connect end');
+            }
+        })
+
     }])
     .controller("SSH", ["$scope", "$rootScope", "$timeout", function ($scope, $rootScope, $timeout) {
         $rootScope.module = "ssh";
@@ -169,15 +177,15 @@ angular.module("LemonerTerminal", ["ngRoute"])
         $scope.ping_obj = function (obj) {
             this.$obj = obj;
             this.$data = [];    //所有ping
-            this.$sent = 0;
-            this.$received = 0;
-            this.$max = 0;
-            this.$min = 10000;
-            this.$lost = 0;
-            this.$loss = 0;
-            this.$avg = 0;
-            this.$high_data = [];   //高延迟ping
-            this.$error_data = [];  //错误ping
+            this.$sent = 0;     //已发送
+            this.$received = 0; //已接受
+            this.$max = 0;      //最大延迟
+            this.$min = 10000;  //最小延迟
+            this.$lost = 0;     //丢失
+            this.$loss = 0;     //丢包率
+            this.$avg = 0;      //平均延迟
+            this.$total = 0;    //延迟总计
+            this.$high = 0;   //高延迟ping
             this.$handle = null;  //循环的句柄
             var $this = this;
             this._ping = function () {
@@ -189,17 +197,18 @@ angular.module("LemonerTerminal", ["ngRoute"])
                                 $this.$lost++;
                                 type = "error";
                                 ms = "Time Out or Error Address";
-                                $this.$error_data.unshift(ms)
                             } else {
                                 $this.$received++;
+                                $this.$total += ms;
+                                $this.$loss = $this.$lost != 0 ? ($this.$lost / $this.$sent) * 100 : 0;
+                                $this.$avg = parseInt($this.$total / $this.$received);
                             }
                             if (ms > $this.$obj.high_ping) {            //高延迟
                                 type = "high";
-                                $this.$high_data.unshift(ms)
+                                $this.$high++
                             }
                             if (ms > $this.$max)$this.$max = ms;        //最高
                             if (ms < $this.$min)$this.$min = ms;        //最低
-                            $this.$loss = $this.$lost != 0 ? ($this.$lost / $this.sent) * 100 : 0;
 
                             $this.$data.unshift({value: ms, type: type, time: Date.now().toString()});
                             $scope.$$phase || $scope.$apply();
