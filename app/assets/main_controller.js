@@ -28,7 +28,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
 
         //当路由更改时，要清空以前的数据
         $scope.$on('$routeChangeStart', function (obj, end, start) {
-            if (start&&start.scope&&start.scope.conn) {
+            if (start && start.scope && start.scope.conn) {
                 start.scope.conn.end();
                 console.log('connect end');
             }
@@ -187,11 +187,14 @@ angular.module("LemonerTerminal", ["ngRoute"])
             this.$total = 0;    //延迟总计
             this.$high = 0;   //高延迟ping
             this.$handle = null;  //循环的句柄
+            this.$started = false; //是否已开始
             var $this = this;
-            this._ping = function () {
-                $interval(function () {
+            this.start = function () {
+                if($this.$started) return;
+                $this.$started = true;
+                $this.$handle = $interval(function () {
                     $this.$sent++;
-                    $this.$handle = window.ping($this.$obj.address, function (err, ms) {
+                    window.ping($this.$obj.address, function (err, ms) {
                             var type = "low";
                             if (err) {          //丢失时
                                 $this.$lost++;
@@ -216,20 +219,39 @@ angular.module("LemonerTerminal", ["ngRoute"])
                     );
                 }, this.$obj.interval)
             };
+            this.stop = function () {
+                $interval.cancel(this.$handle);
+            };
+
             this.$get = function () {
                 return this;
             };
         };
 
         $scope.ping_array = [];
+        //添加ping
         $scope.Ping = function (obj) {
-
             obj = new $scope.ping_obj(obj);
-            obj._ping();
             $scope.ping_array.unshift(obj.$get());
             $scope.Ping_Click(obj);
             $scope.link = {address: "127.0.0.1", count: 4, high_ping: 200, interval: 1000}
         };
+        //全部开始
+        $scope.all_start= function(){
+            angular.forEach($scope.ping_array, function(obj){
+                obj.start();
+            })
+        };
+        //全部停止
+        $scope.all_stop = function(){
+            angular.forEach($scope.ping_array, function(obj){
+                obj.stop();
+            })
+        };
+        //清除
+        $scope.all_clear = function(){$scope.ping_array=[];
+        };
+
 
         $scope.Ping_Click = function (p) {
             $scope.active_p = p;

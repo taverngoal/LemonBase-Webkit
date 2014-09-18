@@ -53,7 +53,7 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
         #ping_view .tab-content .alert{ padding: 5px 10px; margin-bottom: 5px }
     #ping_view .nav li a{ cursor: pointer;}
     #ping_view .setting { height: 100%;  padding-top: 20px}
-    #ping_view .nav-tabs { border:0}
+    #ping_view .nav-tabs { border:0; height: 32px}
     #ping_view .data-block { margin-top: 10px;}
         #ping_view .data-block > .ping-obj {padding: 0 5px; width: 100%; margin-bottom: 1px;}
             #ping_view .ping-obj > span {float:left; display: inline-block; padding: 0 5px; height: 30px; line-height: 30px; margin-right: 1px; width:10%; text-align: right  }
