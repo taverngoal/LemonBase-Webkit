@@ -24,7 +24,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
         $scope.ThemeChange = function (theme) {
             simpleStorage.set('theme', $scope.themes[theme]);
             $scope.theme = $scope.themes[theme]
-        }
+        };
 
         //当路由更改时，要清空以前的数据
         $scope.$on('$routeChangeStart', function (obj, end, start) {
@@ -32,7 +32,9 @@ angular.module("LemonerTerminal", ["ngRoute"])
                 start.scope.conn.end();
                 console.log('connect end');
             }
-        })
+        });
+
+        $scope.platform = window.platform;
 
     }])
     .controller("SSH", ["$scope", "$rootScope", "$timeout", function ($scope, $rootScope, $timeout) {

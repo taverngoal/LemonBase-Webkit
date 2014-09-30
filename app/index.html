@@ -52,7 +52,8 @@
                         class="fa fa-fw fa-terminal"></i>&nbsp;SSH</a></li>
                 <li ng-class="{ active: module=='telnet' }" class="disabled"><a><i class="fa fa-fw fa-code"></i>&nbsp;Telnet(Discovering)</a>
                 </li>
-                <li ng-class="{ active: module=='ping' }"><a href="#/ping"><i
+                <li ng-class="{ active: module=='ping',disabled :platform =='darwin' }"><a
+                        ng-href="{{platform =='darwin'?'':'#/ping'}}"><i
                         class="fa fa-fw fa-flash"></i>&nbsp;Ping</a></li>
             </ul>
         </div>

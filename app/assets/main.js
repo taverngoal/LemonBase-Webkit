@@ -2,10 +2,11 @@
  * Created by lol on 2014/9/12.
  */
 window.ssh = require("ssh2");
-window.ping = require('pinger');
+//window.ping = require('pinger');
 window.telnet = require("telnet-client");
 window.gui = require('nw.gui');
 window.win = gui.Window.get();
+window.platform = process.platform;
 
 window.maximize = function () {
     if (win.isFullscreen)
