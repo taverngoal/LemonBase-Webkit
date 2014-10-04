@@ -1,8 +1,29 @@
 /**
  * Created by lol on 2014/9/13.
  */
-angular.module("LemonerTerminal", ["ngRoute"])
-    .config(["$routeProvider", function ($routeProvider) {
+angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"])
+    .config(["$routeProvider", "$httpProvider", function ($routeProvider, $httpProvider) {
+        $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
+            return {
+                'request': function (config) {
+                    config.url = config.url.replace("%2F", "/");
+                    console.log(config)
+                    return config || $q.when(config);
+                },
+                'response': function (rejection) {
+
+                    return rejection || $q.when(rejection);
+
+                },
+                responseError: function (rejection) {
+                    if (rejection.status == 401)
+                        $location.path("/client/login");
+                    return $q.reject(rejection);
+                }
+
+            }
+        });
+
         $routeProvider
             .when('/ssh', {
                 templateUrl: 'views/ssh.html',
@@ -192,7 +213,7 @@ angular.module("LemonerTerminal", ["ngRoute"])
             this.$started = false; //是否已开始
             var $this = this;
             this.start = function () {
-                if($this.$started) return;
+                if ($this.$started) return;
                 $this.$started = true;
                 $this.$handle = $interval(function () {
                     $this.$sent++;
@@ -239,19 +260,20 @@ angular.module("LemonerTerminal", ["ngRoute"])
             $scope.link = {address: "127.0.0.1", count: 4, high_ping: 200, interval: 1000}
         };
         //全部开始
-        $scope.all_start= function(){
-            angular.forEach($scope.ping_array, function(obj){
+        $scope.all_start = function () {
+            angular.forEach($scope.ping_array, function (obj) {
                 obj.start();
             })
         };
         //全部停止
-        $scope.all_stop = function(){
-            angular.forEach($scope.ping_array, function(obj){
+        $scope.all_stop = function () {
+            angular.forEach($scope.ping_array, function (obj) {
                 obj.stop();
             })
         };
         //清除
-        $scope.all_clear = function(){$scope.ping_array=[];
+        $scope.all_clear = function () {
+            $scope.ping_array = [];
         };
 
 

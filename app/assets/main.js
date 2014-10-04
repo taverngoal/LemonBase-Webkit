@@ -2,11 +2,15 @@
  * Created by lol on 2014/9/12.
  */
 window.ssh = require("ssh2");
-//window.ping = require('pinger');
 window.telnet = require("telnet-client");
 window.gui = require('nw.gui');
 window.win = gui.Window.get();
 window.platform = process.platform;
+if (platform != "darwin")
+    window.ping = require('pinger');
+
+//读取配置文件
+window.package = require(process.cwd() + "/package.json");
 
 window.maximize = function () {
     if (win.isFullscreen)

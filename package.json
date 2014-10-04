@@ -3,6 +3,7 @@
     "main": "app/index.html",
     "version": "0.0.2",
     "description": "The Tools for Lemoner",
+    "server_path": "http://localhost:3000",
     "window": {
         "frame": false,
         "toolbar": false,
