@@ -12,15 +12,16 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
                 templateUrl: 'views/client/account.html',
                 controller: 'account'
             })
-
     }])
     .controller("login", ["$scope", "$rootScope", function ($scope, $rootScope) {
-        $rootScope.module = "login"
-
+        $rootScope.module = "login";
+        $scope.UserSave=function(user){
+            $rootScope.user = user;
+        }
     }])
     .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "account";
-        clientService.account_list(1, 20, function (content) {
+        clientService.account_list(0, 20, function (content) {
             console.log(content)
         })
     }]);

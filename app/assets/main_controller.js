@@ -7,17 +7,17 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
             return {
                 'request': function (config) {
                     config.url = config.url.replace("%2F", "/");
-                    console.log(config)
+                    config.headers['Lemon-Auth'] = new Buffer($rootScope.user.username + ':' + $rootScope.user.psd).toString('base64');
                     return config || $q.when(config);
                 },
                 'response': function (rejection) {
-
                     return rejection || $q.when(rejection);
-
                 },
                 responseError: function (rejection) {
                     if (rejection.status == 401)
                         $location.path("/client/login");
+                    else if (rejection.status == 403)
+                        $location.path("/client/forbidden");
                     return $q.reject(rejection);
                 }
 
@@ -38,7 +38,8 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 controller: 'Ping'
             })
     }])
-    .controller("Home", ["$scope", function ($scope) {
+    .controller("Home", ["$scope", "$rootScope", function ($scope, $rootScope) {
+        $rootScope.user = {username: "", psd: ""};
         $scope.themes = {'default': 'default.css', dark: 'black_orange.css'};
         $scope.theme = simpleStorage.get('theme') || $scope.themes.dark;
 
