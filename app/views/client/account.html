@@ -1,1 +1,20 @@
-<div></div>
+<div id="account">
+    <div>
+        <table class="table">
+            <tr>
+                <th>{{i18n.Account.title}}</th>
+                <th>{{i18n.Account.sum}}</th>
+                <th>{{i18n.Account.amount}}</th>
+                <th>{{i18n.Account.user}}</th>
+                <th>{{i18n.Account.date}}</th>
+            </tr>
+            <tr ng-repeat="r in accounts">
+                <th>{{r.title}}</th>
+                <th>{{r.sum}}</th>
+                <th>{{r.amount}}</th>
+                <th>{{r.user}}</th>
+                <th>{{r.date}}</th>
+            </tr>
+        </table>
+    </div>
+</div>

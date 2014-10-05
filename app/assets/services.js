@@ -26,7 +26,15 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': '用密码登录',
                     'connect with key file': '用密钥文件登录',
                     setting: '设置',
-                    save: '保存'
+                    save: '保存',
+                    AccountDetail: {
+                        title: '标题',
+                        sum: '入账金额',
+                        amount: '实际金额',
+                        user: '记录者',
+                        purpose: '用途',
+                        date: '入账日期'
+                    }
                 },
                 "en": {
                     email: 'Email',
@@ -40,7 +48,15 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': 'Connect With Password',
                     'connect with key file': 'Connect With Key File',
                     setting: 'Setting',
-                    save: 'Save'
+                    save: 'Save',
+                    AccountDetail: {
+                        title: 'Title',
+                        sum: 'Sum',
+                        amount: 'Amount',
+                        user: 'Recorder',
+                        purpose: 'Purpose',
+                        date: 'Date'
+                    }
                 }
 
             }

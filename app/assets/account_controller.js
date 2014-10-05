@@ -12,6 +12,6 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
     .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "account";
         clientService.account_list(0, 20, function (content) {
-            console.log(content)
+            $scope.accounts = content;
         })
     }]);
