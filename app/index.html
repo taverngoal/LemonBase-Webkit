@@ -35,13 +35,14 @@
 <div class="row" id="wrap">
     <header>
         <div id="logo">
-            <div class="cycle"></div>
             <div class="icon"><i class="fa-bars fa"></i></div>
         </div>
         <ul class="actionbar">
             <li ng-click="ThemeChange('default')"
                 style="background: url('assets/img/default.png') center no-repeat;"></li>
             <li ng-click="ThemeChange('dark')" style="background: url('assets/img/dark.png') center no-repeat ;"></li>
+            <li ng-click="LangChange('zh-cn')" ng-class="{active:lang=='zh-cn'}"><i>汉</i></li>
+            <li ng-click="LangChange('en')" ng-class="{active:lang=='en'}"><i>EN</i></li>
             <li onclick="win.reload()"><i class="fa fa-refresh"></i></li>
             <li onclick="win.showDevTools()"><i class="fa fa-cog"></i></li>
             <li onclick="win.minimize()"><i class="fa fa-minus"></i></li>
@@ -58,9 +59,10 @@
                 <li ng-class="{ active: module=='ping',disabled :platform =='darwin' }"><a
                         ng-href="{{platform =='darwin'?'':'#/ping'}}"><i
                         class="fa fa-fw fa-flash"></i>&nbsp;Ping</a></li>
-                <li ng-class="{active:module=='account'}"><a href="#/client/account"><i class="fa fa-credit-card fa-fw"></i>&nbsp;Account</a></li>
-                <li ng-class="{active:module=='login'}" ><a href="#/client/login">
-                    <i class="fa fa-key fa-fw"></i>&nbsp;Login</a></li>
+                <li ng-class="{active:module=='login'}"><a href="#/setting">
+                    <i class="fa fa-cogs fa-fw"></i>&nbsp;<span ng-bind="i18n.setting"></span></a></li>
+                <li ng-class="{active:module=='account'}"><a href="#/client/account"><i
+                        class="fa fa-credit-card fa-fw"></i>&nbsp;{{i18n.account}}</a></li>
             </ul>
         </div>
         <div class="col-sm-9" id="Content" ng-view></div>

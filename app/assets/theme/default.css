@@ -18,3 +18,5 @@ input { border:0 !important; }
 #Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { background-color: #999; border:0; color:#fff}
 
 #ping_view .ping-info { background: #428bca; color:#fff; border-radius: 5px }
+
+#login { background-color: #f3f3f3; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; }

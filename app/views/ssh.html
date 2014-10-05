@@ -8,29 +8,29 @@
 <div class="setting col-sm-3">
     <form role="form" name="linkForm">
         <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" ng-model="link.address" placeholder="Address"
+            <label for="address">{{i18n.address}}</label>
+            <input type="text" class="form-control" id="address" ng-model="link.address" placeholder="{{i18n.address}}"
                    ng-init="link.address='lemoner.info'" required>
         </div>
         <div class="form-group">
-            <label for="port">Port</label>
-            <input type="text" class="form-control" id="port" ng-model="link.port" placeholder="端口"
+            <label for="port">{{i18n.port}}</label>
+            <input type="text" class="form-control" id="port" ng-model="link.port" placeholder="{{i18n.port}}"
                    ng-pattern="/^[0-9]+$/" ng-init="link.port='22'" required>
         </div>
         <div class="form-group">
-            <label for="account">Account</label>
-            <input type="text" class="form-control" id="account" ng-model="link.user" placeholder="Account"
+            <label for="account">{{i18n.account}}</label>
+            <input type="text" class="form-control" id="account" ng-model="link.user" placeholder="{{i18n.account}}"
                    ng-init="link.user='tavern'" required>
         </div>
         <div class="form-group">
-            <label for="psd">Password</label>
-            <input type="password" class="form-control" id="psd" ng-model="link.psd" placeholder="Password"
+            <label for="psd">{{i18n.password}}</label>
+            <input type="password" class="form-control" id="psd" ng-model="link.psd" placeholder="{{i18n.password}}"
                    ng-init="link.psd='Tavern1001'" required>
         </div>
         <div class="form-group">
-            <label for="key">Key File (Optional)</label>
+            <label for="key">{{i18n['key file']}} ({{i18n.optional}})</label>
             <button type="button" class="btn btn-warning btn-block" onclick="$('#key').click()" title="{{link.key}}">
-                {{link.key||'Click To Chose'}}
+                {{link.key||i18n['click to chose']}}
             </button>
             <input type="file" class="form-control" id="key" placeholder="Key File" ng-hide="true">
         </div>
@@ -43,8 +43,8 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:void(0)" ng-click="Link()">Connect with Password</a></li>
-                    <li><a href="javascript:void(0)" ng-click="Link('#key')">Connect with Key File</a></li>
+                    <li><a href="javascript:void(0)" ng-click="Link()">{{i18n['connect with password']}}</a></li>
+                    <li><a href="javascript:void(0)" ng-click="Link('#key')">{{i18n['connect with key file']}}</a></li>
                 </ul>
             </div>
             <button type="button" class="btn btn-danger col-sm-6" ng-disabled="!conn.enable"

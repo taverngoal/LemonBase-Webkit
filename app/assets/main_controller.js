@@ -37,11 +37,23 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 templateUrl: 'views/ping.html',
                 controller: 'Ping'
             })
+            .when('/setting', {
+                templateUrl: 'views/setting.html',
+                controller: 'setting'
+            })
     }])
-    .controller("Home", ["$scope", "$rootScope", function ($scope, $rootScope) {
-        $rootScope.user = {username: "", psd: ""};
+    .controller("Home", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
+        $rootScope.user = simpleStorage.get("user") || {username: "", psd: ""};
         $scope.themes = {'default': 'default.css', dark: 'black_orange.css'};
         $scope.theme = simpleStorage.get('theme') || $scope.themes.dark;
+        $scope.lang = simpleStorage.get('lang') || 'en';
+        $scope.i18n = clientService.config.i18n[$scope.lang];
+
+        $scope.LangChange = function (lang) {
+            simpleStorage.set('lang', lang);
+            $scope.lang = lang;
+            $scope.i18n = clientService.config.i18n[$scope.lang];
+        };
 
         $scope.ThemeChange = function (theme) {
             simpleStorage.set('theme', $scope.themes[theme]);
@@ -289,5 +301,16 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         }
     }
     ])
+    .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
+        $rootScope.module = "login";
+        $scope.UserSave = function (user) {
+            $rootScope.user = user;
+            simpleStorage.set("user", user);
+            clientService.test(function (content) {
+                console.log(content)
+            })
+
+        }
+    }])
 ;
 
