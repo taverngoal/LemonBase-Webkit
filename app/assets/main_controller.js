@@ -6,7 +6,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
             return {
                 'request': function (config) {
-                    config.url = config.url.replace("%2F", "/");
+                    config.url = config.url.replace(/%2F/g, "/");
                     config.headers['Lemon-Auth'] = new Buffer($rootScope.user.username + ':' + $rootScope.user.psd).toString('base64');
                     return config || $q.when(config);
                 },

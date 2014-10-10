@@ -8,10 +8,24 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
                 templateUrl: 'views/client/account.html',
                 controller: 'account'
             })
+            .when('/client/account/:id/details', {
+                templateUrl: 'views/client/accountdetails.html',
+                controller: 'accountdetails'
+            })
     }])
     .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "account";
         clientService.account_list(0, 20, function (content) {
             $scope.accounts = content;
         })
+    }])
+    .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {
+        $rootScope.module = "accountdetails";
+        clientService.account_details($routeParams.id, 0, 20, function (content) {
+            $scope.details = content;
+            var canvas = document.getElementById("canvas").getContext("2d");
+            clientService.account_chart(canvas, content);
+
+        })
+
     }]);

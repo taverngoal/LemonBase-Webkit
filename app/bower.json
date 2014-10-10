@@ -1,26 +1,27 @@
 {
-    "name": "LemonBase-Webkit",
-    "version": "0.0.2",
-    "homepage": "https://github.com/taverngoal/LemonBase-Webkit",
-    "authors": [
-        "TavernGoal <windack@qq.com>"
-    ],
-    "main": "\"app/assets/main.css\"",
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "jquery": "~2.1.1",
-        "angular-route": "~1.2.24",
-        "bootstrap": "~3.2.0",
-        "simpleStorage": "~0.1.2",
-        "term.js": "git://github.com/chjj/term.js.git#~0.0.4",
-        "fontawesome": "~4.2.0",
-        "angular-resource": "~1.2.25"
-    }
+  "name": "LemonBase-Webkit",
+  "version": "0.0.2",
+  "homepage": "https://github.com/taverngoal/LemonBase-Webkit",
+  "authors": [
+    "TavernGoal <windack@qq.com>"
+  ],
+  "main": "\"app/assets/main.css\"",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angular-route": "~1.2.24",
+    "bootstrap": "~3.2.0",
+    "simpleStorage": "~0.1.2",
+    "term.js": "git://github.com/chjj/term.js.git#~0.0.4",
+    "fontawesome": "~4.2.0",
+    "angular-resource": "~1.2.25",
+    "chartjs": "~0.2.0"
+  }
 }

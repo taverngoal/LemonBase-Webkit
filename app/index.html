@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="LemonerTerminal" ng-controller="Home">
-<head lang="en">
+<head lang="zh-cn">
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/term.js/src/term.js"></script>
     <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+    <script src="assets/Chart.min.js"></script>
     <script src="assets/main.js"></script>
     <script src="assets/services.js"></script>
     <script src="assets/account_controller.js"></script>
@@ -63,6 +64,9 @@
                     <i class="fa fa-cogs fa-fw"></i>&nbsp;<span ng-bind="i18n.setting"></span></a></li>
                 <li ng-class="{active:module=='account'}"><a href="#/client/account"><i
                         class="fa fa-credit-card fa-fw"></i>&nbsp;{{i18n.account}}</a></li>
+                <li ng-class="{active:module=='accountdetails'}" ng-show="module=='accountdetails'"><a
+                        href="javasciprt:void(0)"><i
+                        class="fa fa-book fa-fw"></i>&nbsp;{{i18n.account_details}}</a></li>
             </ul>
         </div>
         <div class="col-sm-9" id="Content" ng-view></div>

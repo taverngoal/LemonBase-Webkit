@@ -1,0 +1,26 @@
+<div id="account_details">
+    <div id="chart">
+        <canvas id="canvas" height="200" width="600"></canvas>
+    </div>
+    <div>
+        <table class="table text-center">
+            <tr>
+                <th class="text-center">{{i18n.AccountDetail.title}}</th>
+                <th class="text-center">{{i18n.AccountDetail.sum}}</th>
+                <th class="text-center">{{i18n.AccountDetail.amount}}</th>
+                <th class="text-center">{{i18n.AccountDetail.user}}</th>
+                <th class="text-center">{{i18n.AccountDetail.date}}</th>
+            </tr>
+            <tr ng-repeat="r in details">
+                <td><i class="fa fa-fw fa-book"></i>{{r.title}}</td>
+                <td><span
+                        ng-class="{'text-danger': r.sum<0, 'text-success': r.sum>0}"><i class="fa fa-fw fa-cny"></i>{{r.sum>0?"+":"-"}}{{r.sum}}</span>
+                </td>
+                <td class="text-warning"><i class="fa fa-fw fa-cny"></i>{{r.amount}}</td>
+                <td><i class="fa fa-user fa-fw"></i>{{r.user.name}}</td>
+                <td><i class="fa fa-clock-o fa-fw"></i>{{r.created_at | date: 'yyyy-MM-dd HH-mm-ss'}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>

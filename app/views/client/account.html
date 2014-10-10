@@ -1,19 +1,23 @@
 <div id="account">
     <div>
-        <table class="table">
+        <table class="table text-center">
             <tr>
-                <th>{{i18n.Account.title}}</th>
-                <th>{{i18n.Account.sum}}</th>
-                <th>{{i18n.Account.amount}}</th>
-                <th>{{i18n.Account.user}}</th>
-                <th>{{i18n.Account.date}}</th>
+                <th class="text-center">{{i18n.Account.title}}</th>
+                <th class="text-center">{{i18n.Account.amount}}</th>
+                <th class="text-center">{{i18n.Account.creator}}</th>
+                <th class="text-center">{{i18n.Account.officer}}</th>
+                <th class="text-center">{{i18n.Account.is_public}}</th>
+                <th class="text-center">{{i18n.Account.created_at}}</th>
             </tr>
             <tr ng-repeat="r in accounts">
-                <th>{{r.title}}</th>
-                <th>{{r.sum}}</th>
-                <th>{{r.amount}}</th>
-                <th>{{r.user}}</th>
-                <th>{{r.date}}</th>
+                <td><a ng-href="#/client/account/{{r.id}}/details"><i class="fa fa-fw fa-book"></i> {{r.title}}</a></td>
+                <td class="text-warning"><i class="fa fa-fw fa-cny"></i>{{r.amount}}</td>
+                <td>{{r.creator.name}}</td>
+                <td class="text-success">{{r.officer.name}}</td>
+                <td class="text-center"><i
+                        ng-class="{'fa-times text-danger':!r.is_public, 'fa-check text-success': r.is_public}"
+                        class="fa"></i></td>
+                <td class="text-center">{{r.created_at| date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             </tr>
         </table>
     </div>
