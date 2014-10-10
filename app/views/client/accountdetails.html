@@ -4,6 +4,7 @@
     </div>
     <div>
         <table class="table text-center">
+            <thead>
             <tr>
                 <th class="text-center">{{i18n.AccountDetail.title}}</th>
                 <th class="text-center">{{i18n.AccountDetail.sum}}</th>
@@ -11,6 +12,8 @@
                 <th class="text-center">{{i18n.AccountDetail.user}}</th>
                 <th class="text-center">{{i18n.AccountDetail.date}}</th>
             </tr>
+            </thead>
+            <tbody>
             <tr ng-repeat="r in details">
                 <td><i class="fa fa-fw fa-book"></i>{{r.title}}</td>
                 <td><span
@@ -18,8 +21,9 @@
                 </td>
                 <td class="text-warning"><i class="fa fa-fw fa-cny"></i>{{r.amount}}</td>
                 <td><i class="fa fa-user fa-fw"></i>{{r.user.name}}</td>
-                <td><i class="fa fa-clock-o fa-fw"></i>{{r.created_at | date: 'yyyy-MM-dd HH-mm-ss'}}</td>
+                <td><i class="fa fa-clock-o fa-fw"></i>{{r.created_at | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             </tr>
+            </tbody>
         </table>
     </div>
 

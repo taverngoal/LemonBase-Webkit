@@ -1,6 +1,6 @@
 body{
     background: #282828;
-    color:#ddd
+    color:#eee
 }
 a{ color:#ffcc00 }
 input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
@@ -21,3 +21,5 @@ header .actionbar li{ background: transparent; color:#fefefe }
     color: #fefefe;    background-color: #336699;
 }
 #ping_view .ping-info { background: #336699; color:#fff; border-radius: 5px}
+
+.table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{ border-color: #666 }
