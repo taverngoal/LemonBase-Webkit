@@ -6,8 +6,8 @@ angular.module("LemonerService", ["ngResource"])
         this.resource = function () {
             return $resource($rootScope.server.location + "/:path", {path: "@path"});
         };
-        this.test = function (cb) {
-            return this.resource().get({path: 'api/test'}, cb);
+        this.test = function (cb, err) {
+            return this.resource().get({path: 'api/test'}, cb, err);
         };
 
         this.account_chart = function (ctx, data) {

@@ -53,6 +53,8 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         $scope.ClientTest = function () {
             clientService.test(function (content) {
                 if (content.success) $rootScope.user.logined = true;
+            }, function () {
+                $rootScope.user.logined = false;
             })
         };
 
