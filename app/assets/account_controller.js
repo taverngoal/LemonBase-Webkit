@@ -15,9 +15,10 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
     }])
     .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "account";
-        clientService.account_list(0, 20, function (content) {
+        clientService.account_list(0, 20, function (content, headersFun) {
+            $scope.headers = headersFun();
             $scope.accounts = content;
-        })
+        });
     }])
     .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {
         $rootScope.module = "accountdetails";

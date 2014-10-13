@@ -310,12 +310,13 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
     ])
     .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "setting";
-        $scope.UserSave = function (user) {
+        $scope.UserSave = function (user, server) {
             if ($rootScope.user.logined)
                 $rootScope.user.logined = false;
             else {
                 $rootScope.user = user;
                 simpleStorage.set("user", user);
+                simpleStorage.set("server", server)
                 clientService.test(function (content) {
                     if (content.success) $rootScope.user.logined = true;
                 })

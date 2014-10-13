@@ -15,7 +15,7 @@
             <input type="password" class="form-control" id="psd" ng-model="user.psd" placeholder="{{i18n.password}}"
                    required>
         </div>
-        <button type="submit" ng-click="UserSave(user)"
+        <button type="submit" ng-click="UserSave(user,server)"
                 ng-class="{'btn-primary': !user.logined,'btn-danger':user.logined}"
                 class="btn btn-default">{{user.logined?i18n.logout:i18n.login}}
         </button>
