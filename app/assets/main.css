@@ -41,7 +41,7 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
 
 #NavBar { margin-top: 50px; height: 90%;  }
     #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
-#Content { height: 100%; margin-top:15px}
+#Content { height: 100%; margin-top:15px; overflow-y: auto}
     #Content  .terminal { height: 100%; }
     #Content .terminal .terminal { padding: 5px; }
     #Content > .terminal { font-family: 'Mono' serif; font-size: 12px !important ;  -webkit-user-select:text;}

@@ -21,11 +21,15 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
     }])
     .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {
         $rootScope.module = "accountdetails";
+        $scope.id = $routeParams.id;
+        //获取账户详细
         clientService.account_details($routeParams.id, 0, 20, function (content) {
             $scope.details = content;
             var canvas = document.getElementById("canvas").getContext("2d");
             clientService.account_chart(canvas, content);
+        });
 
-        })
+        $scope.account = clientService.account($scope.id, function () {
+        });
 
     }]);

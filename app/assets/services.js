@@ -2,10 +2,12 @@
  * Created by tavern on 14-10-4.
  */
 angular.module("LemonerService", ["ngResource"])
-    .service("clientService", ['$resource', function ($resource) {
-        var resource = $resource(package.server_path + "/:path", {path: "@path"});
+    .service("clientService", ['$resource', "$rootScope", function ($resource, $rootScope) {
+        this.resource = function () {
+            return $resource($rootScope.server.location + "/:path", {path: "@path"});
+        };
         this.test = function (cb) {
-            return resource.get({path: 'api/test'}, cb)
+            return this.resource().get({path: 'api/test'}, cb);
         };
 
         this.account_chart = function (ctx, data) {
@@ -52,12 +54,17 @@ angular.module("LemonerService", ["ngResource"])
         this.account_list = function (page, count, cb) {
             page = page || 0;
             count = count || 20;
-            return resource.query({path: 'api/accounts', page: page, count: count}, cb)
+            return this.resource().query({path: 'api/accounts', page: page, count: count}, cb)
         };
+
+        this.account = function (id, cb) {
+            return this.resource().get({path: "api/accounts/" + id}, cb);
+        };
+
         this.account_details = function (id, page, count, cb) {
             page = page || 0;
             count = count || 20;
-            return resource.query({path: 'api/accounts/' + id + "/details", page: page, count: count}, cb)
+            return this.resource().query({path: 'api/accounts/' + id + "/details", page: page, count: count}, cb)
         };
         this.config = {
             i18n: {
@@ -74,7 +81,10 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': '用密码登录',
                     'connect with key file': '用密钥文件登录',
                     setting: '设置',
+                    login: '登录',
+                    logout: '注销',
                     save: '保存',
+                    server_path: ' 服务器路径',
                     Account: {
                         title: '标题',
                         amount: '金额',
@@ -105,7 +115,10 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': 'Connect With Password',
                     'connect with key file': 'Connect With Key File',
                     setting: 'Setting',
+                    login: 'Login',
+                    logout: 'Logout',
                     save: 'Save',
+                    server_path: 'Server Location',
                     Account: {
                         title: 'Title',
                         amount: 'Amount',

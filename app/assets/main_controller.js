@@ -15,7 +15,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 },
                 responseError: function (rejection) {
                     if (rejection.status == 401)
-                        $location.path("/client/login");
+                        $location.path("/setting");
                     else if (rejection.status == 403)
                         $location.path("/client/forbidden");
                     return $q.reject(rejection);
@@ -43,11 +43,18 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
             })
     }])
     .controller("Home", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
-        $rootScope.user = simpleStorage.get("user") || {username: "", psd: ""};
+        $rootScope.user = simpleStorage.get("user") || {username: "", psd: "", logined: false};
+        $rootScope.server = simpleStorage.get("server") || {location: 'http://lemoner.info'};
         $scope.themes = {'default': 'default.css', dark: 'black_orange.css'};
         $scope.theme = simpleStorage.get('theme') || $scope.themes.dark;
         $scope.lang = simpleStorage.get('lang') || 'en';
         $scope.i18n = clientService.config.i18n[$scope.lang];
+
+        $scope.ClientTest = function () {
+            clientService.test(function (content) {
+                if (content.success) $rootScope.user.logined = true;
+            })
+        };
 
         $scope.LangChange = function (lang) {
             simpleStorage.set('lang', lang);
@@ -67,7 +74,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 console.log('connect end');
             }
         });
-
+        $scope.ClientTest();
         $scope.platform = window.platform;
 
     }])
@@ -302,14 +309,17 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
     }
     ])
     .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
-        $rootScope.module = "login";
+        $rootScope.module = "setting";
         $scope.UserSave = function (user) {
-            $rootScope.user = user;
-            simpleStorage.set("user", user);
-            clientService.test(function (content) {
-                console.log(content)
-            })
-
+            if ($rootScope.user.logined)
+                $rootScope.user.logined = false;
+            else {
+                $rootScope.user = user;
+                simpleStorage.set("user", user);
+                clientService.test(function (content) {
+                    if (content.success) $rootScope.user.logined = true;
+                })
+            }
         }
     }])
 ;

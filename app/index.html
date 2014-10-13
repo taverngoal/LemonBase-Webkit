@@ -22,7 +22,6 @@
     <script src="assets/main_controller.js"></script>
     <script>
         $(function () {
-
         });
         //        function test($scope, $http) {
         //            $http.defaults.headers.common.Authorization = 'Basic MTIzOjMyMQ==';
@@ -60,11 +59,11 @@
                 <li ng-class="{ active: module=='ping',disabled :platform =='darwin' }"><a
                         ng-href="{{platform =='darwin'?'':'#/ping'}}"><i
                         class="fa fa-fw fa-flash"></i>&nbsp;Ping</a></li>
-                <li ng-class="{active:module=='login'}"><a href="#/setting">
+                <li ng-class="{active:module=='setting'}"><a href="#/setting">
                     <i class="fa fa-cogs fa-fw"></i>&nbsp;<span ng-bind="i18n.setting"></span></a></li>
-                <li ng-class="{active:module=='account'}"><a href="#/client/account"><i
+                <li ng-class="{active:module=='account'}" ng-show="user.logined"><a href="#/client/account"><i
                         class="fa fa-credit-card fa-fw"></i>&nbsp;{{i18n.account}}</a></li>
-                <li ng-class="{active:module=='accountdetails'}" ng-show="module=='accountdetails'"><a
+                <li ng-class="{active:module=='accountdetails'}" ng-show="module=='accountdetails'&&user.logined"><a
                         href="javasciprt:void(0)"><i
                         class="fa fa-book fa-fw"></i>&nbsp;{{i18n.account_details}}</a></li>
             </ul>

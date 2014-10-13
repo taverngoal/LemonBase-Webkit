@@ -1,13 +1,23 @@
 <div id="login" class="col-sm-12">
     <form role="form">
         <div class="form-group">
+            <label for="server_path">{{i18n.server_path}}</label>
+            <input type="url" class="form-control" id="server_path" ng-model="server.location"
+                   placeholder="{{i18n.server_path}}" required>
+        </div>
+        <div class="form-group">
             <label for="email">{{i18n.email}}</label>
-            <input type="email" class="form-control" id="email" ng-model="user.username" placeholder="{{i18n.email}}">
+            <input type="email" class="form-control" id="email" ng-model="user.username" placeholder="{{i18n.email}}"
+                   required>
         </div>
         <div class="form-group">
             <label for="psd">{{i18n.password}}</label>
-            <input type="password" class="form-control" id="psd" ng-model="user.psd" placeholder="{{i18n.password}}">
+            <input type="password" class="form-control" id="psd" ng-model="user.psd" placeholder="{{i18n.password}}"
+                   required>
         </div>
-        <button type="submit" ng-click="UserSave(user)" class="btn btn-default">{{i18n.save}}</button>
+        <button type="submit" ng-click="UserSave(user)"
+                ng-class="{'btn-primary': !user.logined,'btn-danger':user.logined}"
+                class="btn btn-default">{{user.logined?i18n.logout:i18n.login}}
+        </button>
     </form>
 </div>
