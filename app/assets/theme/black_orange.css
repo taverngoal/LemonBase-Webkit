@@ -23,3 +23,9 @@ header .actionbar li{ background: transparent; color:#fefefe }
 #ping_view .ping-info { background: #336699; color:#fff; border-radius: 5px}
 
 .table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{ border-color: #666 }
+
+input[disabled] { background: transparent !important; color:#eee; box-shadow: none}
+
+.text-danger{ color: #c9302c }
+.text-warning { color: #cc6600 }
+.text-success { color: #669900}

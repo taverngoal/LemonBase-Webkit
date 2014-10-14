@@ -53,8 +53,6 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         $scope.ClientTest = function () {
             clientService.test(function (content) {
                 if (content.success) $rootScope.user.logined = true;
-            }, function () {
-                $rootScope.user.logined = false;
             })
         };
 
@@ -313,12 +311,14 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
     .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "setting";
         $scope.UserSave = function (user, server) {
-            if ($rootScope.user.logined)
+            if ($rootScope.user.logined) {
                 $rootScope.user.logined = false;
+                $rootScope.server.status = -1;
+            }
             else {
                 $rootScope.user = user;
                 simpleStorage.set("user", user);
-                simpleStorage.set("server", server)
+                simpleStorage.set("server", server);
                 clientService.test(function (content) {
                     if (content.success) $rootScope.user.logined = true;
                 })

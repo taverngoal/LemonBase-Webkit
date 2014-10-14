@@ -6,8 +6,11 @@ angular.module("LemonerService", ["ngResource"])
         this.resource = function () {
             return $resource($rootScope.server.location + "/:path", {path: "@path"});
         };
-        this.test = function (cb, err) {
-            return this.resource().get({path: 'api/test'}, cb, err);
+        this.test = function (cb) {
+            return this.resource().get({path: 'api/test'}, cb, function (info) {
+                $rootScope.user.logined = false;
+                $rootScope.server.status = info.status;
+            });
         };
 
         this.account_chart = function (ctx, data) {
@@ -85,6 +88,14 @@ angular.module("LemonerService", ["ngResource"])
                     logout: '注销',
                     save: '保存',
                     server_path: ' 服务器路径',
+                    status_code: {
+                        '-1': '',
+                        '0': '服务器不存在',
+                        '401': '帐号不存在或密码错误',
+                        '403': '权限不够',
+                        '500': '服务器繁忙',
+                        '404': '服务器不存在'
+                    },
                     Account: {
                         title: '标题',
                         amount: '金额',
@@ -119,6 +130,14 @@ angular.module("LemonerService", ["ngResource"])
                     logout: 'Logout',
                     save: 'Save',
                     server_path: 'Server Location',
+                    status_code: {
+                        '-1': '',
+                        '0': 'Location Error',
+                        '401': 'Unauthorized',
+                        '403': 'Forbidden',
+                        '500': 'Server Busy',
+                        '404': 'Location Error'
+                    },
                     Account: {
                         title: 'Title',
                         amount: 'Amount',
