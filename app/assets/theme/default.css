@@ -19,6 +19,7 @@ input { border:0 !important; }
 
 #ping_view .ping-info { background: #428bca; color:#fff; border-radius: 5px }
 
-#login { background-color: #eee; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; }
+/*#login { background-color: #eee; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; }*/
 
 input[disabled] { background: transparent !important; box-shadow: none}
+.well { box-shadow: none; border:none; background: #eee }

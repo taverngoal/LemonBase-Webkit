@@ -13,12 +13,17 @@ angular.module("LemonerService", ["ngResource"])
             });
         };
 
+        this.account_add = function (account, cb) {
+            account.path = 'api/accounts';
+            return this.resource().save(account, cb);
+        };
+
         this.account_chart = function (ctx, data) {
             var sum = [], amount = [], date = [];
             angular.forEach(data, function (obj) {
-                sum.push(obj.sum);
-                amount.push(obj.amount);
-                date.push(obj.created_at.substr(5, 5));
+                sum.unshift(obj.sum);
+                amount.unshift(obj.amount);
+                date.unshift(obj.created_at.substr(5, 5));
             });
 
             var lineChartData = {
@@ -87,6 +92,7 @@ angular.module("LemonerService", ["ngResource"])
                     login: '登录',
                     logout: '注销',
                     save: '保存',
+                    submit: '提交',
                     server_path: ' 服务器路径',
                     status_code: {
                         '-1': '',
@@ -97,7 +103,7 @@ angular.module("LemonerService", ["ngResource"])
                         '404': '服务器不存在'
                     },
                     Account: {
-                        title: '标题',
+                        title: '账目名',
                         amount: '金额',
                         creator: '创建人',
                         officer: '负责人',
@@ -110,7 +116,8 @@ angular.module("LemonerService", ["ngResource"])
                         amount: '实际金额',
                         user: '记录者',
                         purpose: '用途',
-                        date: '入账日期'
+                        date: '入账日期',
+                        memo: '备注'
                     }
                 },
                 "en": {
@@ -129,6 +136,7 @@ angular.module("LemonerService", ["ngResource"])
                     login: 'Login',
                     logout: 'Logout',
                     save: 'Save',
+                    submit: 'Submit',
                     server_path: 'Server Location',
                     status_code: {
                         '-1': '',
@@ -152,7 +160,8 @@ angular.module("LemonerService", ["ngResource"])
                         amount: 'Amount',
                         user: 'Recorder',
                         purpose: 'Purpose',
-                        date: 'Date'
+                        date: 'Date',
+                        memo: 'Memo'
                     }
                 }
 

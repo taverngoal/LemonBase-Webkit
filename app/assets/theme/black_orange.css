@@ -29,3 +29,5 @@ input[disabled] { background: transparent !important; color:#eee; box-shadow: no
 .text-danger{ color: #c9302c }
 .text-warning { color: #cc6600 }
 .text-success { color: #669900}
+
+.well { background: #444444; border:none; box-shadow: none }

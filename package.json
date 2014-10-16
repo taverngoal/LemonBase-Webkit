@@ -1,6 +1,6 @@
 {
     "name": "LemonBase-Webkit",
-    "main": "http://client.lemoner.info/index.html",
+    "main": "app/index.html",
     "version": "0.0.2",
     "description": "The Tools for Lemoner",
     "window": {

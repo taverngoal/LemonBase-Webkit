@@ -15,10 +15,29 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
     }])
     .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "account";
-        clientService.account_list(0, 20, function (content, headersFun) {
-            $scope.headers = headersFun();
-            $scope.accounts = content;
-        });
+        $scope.ReloadList = function () {
+            clientService.account_list(0, 20, function (content, headersFun) {
+                $scope.headers = headersFun();
+                $scope.accounts = content;
+            });
+        };
+        $scope.ReloadList();
+
+        $scope.Account_Submit = function (account) {
+            clientService.account_add(account, function () {
+                $scope.ReloadList();
+            });
+        };
+
+        $scope.Account_Pre_Add = function () {
+            $scope.account = { is_public: false, amount: 0.00 };
+            $scope.account_show = true;
+            $("#account .well").slideDown();
+        };
+        $scope.Account_Add_Close = function () {
+            $scope.account_show = false;
+            $("#account .well").slideUp();
+        }
     }])
     .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {
         $rootScope.module = "accountdetails";
@@ -33,4 +52,17 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.account = clientService.account($scope.id, function () {
         });
 
+        $scope.Account_Detail_Submit= function(){
+
+        }
+
+        $scope.Account_Detail_Pre_Add = function () {
+            $scope.account_detail = { };
+            $scope.account_detail_show = true;
+            $(".detail_form").slideDown();
+        };
+        $scope.Account_Detail_Add_Close = function () {
+            $scope.account_detail_show = false;
+            $(".detail_form").slideUp();
+        }
     }]);
