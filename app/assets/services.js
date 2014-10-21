@@ -13,6 +13,11 @@ angular.module("LemonerService", ["ngResource"])
             });
         };
 
+        this.account_detail_add = function (accountid, detail, cb) {
+            detail.path = 'api/accounts/' + accountid + "/details";
+            return this.resource().save(detail, cb)
+        };
+
         this.account_add = function (account, cb) {
             account.path = 'api/accounts';
             return this.resource().save(account, cb);

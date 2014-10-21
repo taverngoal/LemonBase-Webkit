@@ -43,18 +43,24 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $rootScope.module = "accountdetails";
         $scope.id = $routeParams.id;
         //获取账户详细
-        clientService.account_details($routeParams.id, 0, 20, function (content) {
-            $scope.details = content;
-            var canvas = document.getElementById("canvas").getContext("2d");
-            clientService.account_chart(canvas, content);
-        });
+        $scope.reload = function () {
+            clientService.account_details($routeParams.id, 0, 20, function (content) {
+                $scope.details = content;
+                if ($scope.graph) $scope.graph.destroy();
+                var canvas = document.getElementById("canvas").getContext("2d");
+                $scope.graph = clientService.account_chart(canvas, content);
+            });
 
-        $scope.account = clientService.account($scope.id, function () {
-        });
+            $scope.account = clientService.account($scope.id, function () {
+            });
+        };
+        $scope.reload();
 
-        $scope.Account_Detail_Submit= function(){
-
-        }
+        $scope.Account_Detail_Submit = function (detail) {
+            clientService.account_detail_add($scope.account.id, detail, function () {
+                $scope.reload();
+            });
+        };
 
         $scope.Account_Detail_Pre_Add = function () {
             $scope.account_detail = { };
