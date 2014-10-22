@@ -4,8 +4,9 @@
 }
 * {transition: background 0.5s; }
 
-body, html {height:100%; overflow: hidden; border-radius: 5px; -webkit-user-select: none; font-family: "Helvetica Neue", "Helvetica", Helvetica, 'Microsoft YaHei UI' ,'Microsoft YaHei', sans-serif }
-
+body, html { height:100%; overflow: hidden; border-radius: 5px; -webkit-user-select: none; font-family: "Helvetica Neue", "Helvetica", Helvetica, 'Microsoft YaHei UI' ,'Microsoft YaHei', sans-serif }
+::-webkit-scrollbar { width: 8px;}
+::-webkit-scrollbar-track,::-webkit-scrollbar-thumb{ border-radius: 3px }
 header {
     height: 30px;
     line-height:30px;

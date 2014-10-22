@@ -2,11 +2,16 @@ body{
     background: #282828;
     color:#eee
 }
+
+::-webkit-scrollbar-track { background: #aaa}
+::-webkit-scrollbar-thumb { background: #444;}
+::-webkit-scrollbar-thumb:window-inactive { background: #fff;}
 a{ color:#ffcc00 }
 input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
 #logo .icon {color:#ffcc00;}
 #logo .cycle {border: 3px solid #ffcc00!important;}
 #Content .setting{ background: transparent; }
+#logo{ text-shadow:  1px 1px 2px #222}
 header .actionbar li{ background: transparent; color:#fefefe }
 
 #Content .nav>li{width: 33%;  margin-bottom: 2px}
