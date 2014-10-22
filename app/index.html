@@ -34,12 +34,12 @@
 <body class="container-fluid">
 <div class="row" id="wrap">
     <header>
-        <div id="logo">
-            <div class="icon"><i class="fa"
-                                 ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i>
-            </div>
-        </div>
-        <ul class="actionbar">
+
+        <ul class="actionbar-left">
+            <li><a href="javascript:history.back()"><i class="fa fa-arrow-left fa-lg"></i></a></li>
+            <li><a href="javascript:history.forward()"><i class="fa fa-arrow-right fa-lg"></i></a></li>
+        </ul>
+        <ul class="actionbar-right">
             <li ng-click="ThemeChange('default')"
                 style="background: url('assets/img/default.png') center no-repeat;"></li>
             <li ng-click="ThemeChange('dark')" style="background: url('assets/img/dark.png') center no-repeat ;"></li>
@@ -72,7 +72,17 @@
         </div>
         <div class="col-sm-9" id="Content" ng-view></div>
     </section>
-    <footer></footer>
+    <footer>
+        <div id="status">
+            <div class="normal" ng-hide="on_request_error.length>0">
+                <i class="fa"
+                   ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i>
+            </div>
+            <div class="error" ng-show="on_request_error.length>0">
+                <i class="fa fa-times fa-fw "></i>
+            </div>
+        </div>
+    </footer>
 </div>
 </body>
 </html>

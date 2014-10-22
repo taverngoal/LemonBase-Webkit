@@ -12,11 +12,11 @@
 /*}*/
 
 
-header .actionbar li:hover { color:#fff; background: #269abc }
-header .actionbar li.active { color:#fff; background: #269abc }
-header .actionbar li.close_button:hover { color:#fff; background: #ac2925 }
+header .actionbar-right li:hover { color:#fff; background: #269abc }
+header .actionbar-right li.active { color:#fff; background: #269abc }
+header .actionbar-right li.close_button:hover { color:#fff; background: #ac2925 }
 
-#logo .fa-check { color: #449d44; -webkit-animation: state_hide 4s both; }
+#status .fa-check { color: #449d44; -webkit-animation: state_hide 4s both; }
 @-webkit-keyframes state_hide {
     0% {}
     80%{opacity: 1}

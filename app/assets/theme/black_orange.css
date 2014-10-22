@@ -8,11 +8,12 @@ body{
 ::-webkit-scrollbar-thumb:window-inactive { background: #fff;}
 a{ color:#ffcc00 }
 input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
-#logo .icon {color:#ffcc00;}
-#logo .cycle {border: 3px solid #ffcc00!important;}
+#status .normal {color:#ffcc00;}
+#status .error {color:#b92c28;}
+#status{ text-shadow:  1px 1px 2px #222}
 #Content .setting{ background: transparent; }
-#logo{ text-shadow:  1px 1px 2px #222}
-header .actionbar li{ background: transparent; color:#fefefe }
+header ul li{ background: transparent; color:#fefefe }
+header .actionbar-left a{ color: #fefefe !important; }
 
 #Content .nav>li{width: 33%;  margin-bottom: 2px}
 #Content .terminal .terminal { background-color: transparent;color: #CC9900 }

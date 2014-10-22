@@ -1,6 +1,7 @@
-#logo{ text-shadow: 2px 2px 2px #efefef}
-#logo .icon {color:#ffcc00;}
-#logo .cycle {border: 3px solid #ffcc00!important;}
+#status{ text-shadow: 2px 2px 2px #efefef}
+#status .normal {color:#ffcc00;}
+#status .error {color:#b92c28; }
+header .actionbar-left a{ color: #ffcc00 !important; }
 #Content .setting{ background: #f3f3f3  }
 
 input { border:0 !important; }
@@ -8,8 +9,8 @@ input { border:0 !important; }
     color: #f0f0f0;
     background: #fff;
 }
-::-webkit-scrollbar-track { background: #ccc}
-::-webkit-scrollbar-thumb { background: #428bca;}
+::-webkit-scrollbar-track { background: #ddd}
+::-webkit-scrollbar-thumb { background: #999;}
 ::-webkit-scrollbar-thumb:window-inactive { background: #fff;}
 #Content .terminal .terminal { background-color: #336699;color: #fff }
 
