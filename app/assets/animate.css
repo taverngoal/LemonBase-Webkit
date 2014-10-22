@@ -16,11 +16,14 @@ header .actionbar li:hover { color:#fff; background: #269abc }
 header .actionbar li.active { color:#fff; background: #269abc }
 header .actionbar li.close_button:hover { color:#fff; background: #ac2925 }
 
-.fa-check { color: #449d44; -webkit-animation: state_hide 4s both; }
-.fa-check:before{-webkit-animation: state_hide 4s both; }
-
+#logo .fa-check { color: #449d44; -webkit-animation: state_hide 4s both; }
 @-webkit-keyframes state_hide {
-0% {}
-80%{opacity: 1}
-100%{opacity: 0}
+    0% {}
+    80%{opacity: 1}
+    100%{opacity: 0}
 }
+/*#logo .fa-spinner { -webkit-animation: state_hide .5s both; }*/
+/*@-webkit-keyframes state_hide {*/
+    /*0% {opacity: 0}*/
+    /*100%{opacity: 1}*/
+/*}*/
