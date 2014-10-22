@@ -4,16 +4,23 @@
 angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"])
     .config(["$routeProvider", "$httpProvider", function ($routeProvider, $httpProvider) {
         $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
+            $rootScope.on_request = $rootScope.on_request || [];
             return {
                 'request': function (config) {
                     config.url = config.url.replace(/%2F/g, "/");
                     config.headers['Lemon-Auth'] = new Buffer($rootScope.user.username + ':' + $rootScope.user.psd).toString('base64');
+                    console.log(123)
+                    //请求状态
+                    $rootScope.on_request.push(Math.random());
                     return config || $q.when(config);
                 },
                 'response': function (rejection) {
+                    //一次请求一次回应
+                    $rootScope.on_request.pop();
                     return rejection || $q.when(rejection);
                 },
                 responseError: function (rejection) {
+
                     if (rejection.status == 401)
                         $location.path("/setting");
                     else if (rejection.status == 403)
