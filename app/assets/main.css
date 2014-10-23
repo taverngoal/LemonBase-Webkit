@@ -25,11 +25,11 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
 
 #wrap{height:100%;}
     #wrap section{ margin-bottom: 30px}
-#status { position: absolute; bottom: 20px; left:20px; z-index:1000}
-#status .normal,#status .error {  font-size:32px;  }
-#status .error { width: 100px }
+#status { position: absolute; bottom: 0; z-index:1000; width: 100%;}
+#status .normal,#status .error {  font-size:24px; }
+#status .normal .info,#status .error .info { font-size: 16px; line-height: 32px }
 
-#NavBar { margin-top: 20px; height: 90%;  }
+#NavBar { margin-top: 20px; height: 100%;  }
     #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
 #Content { height: 100%; margin-top:15px; overflow-y: auto; overflow-x: hidden;}
     #Content  .terminal { height: 100%; }

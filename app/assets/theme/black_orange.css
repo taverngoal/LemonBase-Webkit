@@ -6,9 +6,9 @@ body{
 ::-webkit-scrollbar-track { background: #aaa}
 ::-webkit-scrollbar-thumb { background: #444;}
 ::-webkit-scrollbar-thumb:window-inactive { background: #fff;}
-a{ color:#ffcc00 }
+a{ color:#CC9900 }
 input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border: 0 !important; }
-#status .normal {color:#ffcc00;}
+#status .normal {color:#CC9900;}
 #status .error {color:#b92c28;}
 #status{ text-shadow:  1px 1px 2px #222}
 #Content .setting{ background: transparent; }
@@ -19,7 +19,7 @@ header .actionbar-left a{ color: #fefefe !important; }
 #Content .terminal .terminal { background-color: transparent;color: #CC9900 }
 #Content .nav>li>a { padding:5px; border:0;  background: #eee ;color: #444}
 #Content .nav-tabs>li>a {  border-radius: 5px}
-#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {background-color: #ffcc00; color:#666}
+#Content .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {background-color: #CC9900; color:#666}
 #Content .alert{ ; border: 0}
 /*.nav>li>a:hover { background: #428bca; color:#fefefe}*/
 
@@ -33,7 +33,7 @@ header .actionbar-left a{ color: #fefefe !important; }
 input[disabled] { background: transparent !important; color:#eee; box-shadow: none}
 
 .text-danger{ color: #c9302c }
-.text-warning { color: #ffcc00 }
+.text-warning { color: #CC9900 }
 .text-success { color: #669900}
 
 .well { background: #444444; border:none; box-shadow: none }

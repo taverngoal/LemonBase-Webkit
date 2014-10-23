@@ -69,19 +69,20 @@
                         href="javasciprt:void(0)"><i
                         class="fa fa-book fa-fw"></i>&nbsp;{{i18n.account_details}}</a></li>
             </ul>
+
+            <ul id="status" class="nav nav-pills nav-stacked" role="tablist">
+                <li class="normal" ng-hide="on_request_error.length>0">
+                    <a><i class="fa"
+                          ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i></a>
+                </li>
+                <li class="error">
+                    <a><i class="fa fa-exclamation fw"></i><span class="info">Some Wrong</span></a></li>
+            </ul>
         </div>
+
         <div class="col-sm-9" id="Content" ng-view></div>
     </section>
     <footer>
-        <div id="status">
-            <div class="normal" ng-hide="on_request_error.length>0">
-                <i class="fa"
-                   ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i>
-            </div>
-            <div class="error" ng-show="on_request_error.length>0">
-                <i class="fa fa-times fa-fw "></i>
-            </div>
-        </div>
     </footer>
 </div>
 </body>

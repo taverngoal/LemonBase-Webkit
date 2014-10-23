@@ -16,11 +16,21 @@ header .actionbar-right li:hover { color:#fff; background: #269abc }
 header .actionbar-right li.active { color:#fff; background: #269abc }
 header .actionbar-right li.close_button:hover { color:#fff; background: #ac2925 }
 
-#status .fa-check { color: #449d44; -webkit-animation: state_hide 4s both; }
-@-webkit-keyframes state_hide {
+#status .normal .fa-check { color: #449d44; -webkit-animation: state_success 4s both; }
+#status .normal .fa-spinner { color: #eea236}
+#status .error .fa { color: #b92c28; -webkit-animation: state_error 2s infinite both;}
+@-webkit-keyframes state_success {
     0% {}
     80%{opacity: 1}
     100%{opacity: 0}
+}
+
+@-webkit-keyframes state_error {
+    0% {color: #b92c28;}
+    25%{color:#fff}
+    50%{color: #b92c28;}
+    75%{color: #fff;}
+    100%{color: #b92c28;}
 }
 /*#logo .fa-spinner { -webkit-animation: state_hide .5s both; }*/
 /*@-webkit-keyframes state_hide {*/
