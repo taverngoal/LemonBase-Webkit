@@ -7,6 +7,7 @@
 body, html { height:100%; overflow: hidden; border-radius: 5px; -webkit-user-select: none; font-family: "Helvetica Neue", "Helvetica", Helvetica, 'Microsoft YaHei UI' ,'Microsoft YaHei', sans-serif }
 ::-webkit-scrollbar { width: 8px;}
 ::-webkit-scrollbar-track,::-webkit-scrollbar-thumb{ border-radius: 3px }
+a{ text-decoration: none !important; }
 header {
     height: 30px;
     line-height:30px;
@@ -14,20 +15,24 @@ header {
     -webkit-app-region: drag;
     -webkit-user-select: none;
 }
-header .actionbar-left { margin:0; padding: 0;  list-style: none; color:#aaa; float: left; -webkit-app-region: no-drag; margin-left: 20px;
+header .actionbar-left { margin:0; padding: 0;  list-style: none; color:#aaa; float: left; -webkit-app-region: no-drag; margin-left: 10px;
     -webkit-user-select: none;}
 header .actionbar-right{ margin:0; padding: 0;  list-style: none; float: right; color:#aaa;  -webkit-app-region: no-drag;
     -webkit-user-select: none;   }
-    header ul li { display: inline-block; width:30px; height:30px; text-align: center; transition: color 1s;
-         float: left; cursor:pointer; transition: background 1s linear }
+header ul li { padding: 0 4px; display: inline-block; min-width:30px; height:30px; text-align: center; transition: color 1s;
+         float: left; cursor:pointer; transition: background 0.5s linear }
+    header ul li a{ color:#aaa}
 form label { font-family: 'Helvetica',serif; font-weight: normal }
 
 
 #wrap{height:100%;}
     #wrap section{ margin-bottom: 30px}
-#status { position: absolute; bottom: 0; z-index:1000; width: 100%;}
-#status .normal,#status .error {  font-size:24px; }
-#status .normal .info,#status .error .info { font-size: 16px; line-height: 32px }
+#status { position: absolute; bottom: 10px; z-index:1000; width: 25%; padding: 0 15px;}
+#status .normal, #status .error {  font-size:24px; }
+#status .normal .info,#status .error .info { font-size: 12px; position: relative; bottom: 5px }
+#status a{padding: 5px 15px; }
+#status .normal a:hover { background: transparent !important; }
+#status .error a:hover{ cursor: pointer }
 
 #NavBar { margin-top: 20px; height: 100%;  }
     #NavBar > ul.nav-pills>li a{ transition:background 0.3s;  }
@@ -55,4 +60,4 @@ form label { font-family: 'Helvetica',serif; font-weight: normal }
     #ping_view .ping-info th{ text-align: center;   margin-bottom: 1px;}
     #ping_view .ping-info td{ padding:5px; text-align: center; margin-bottom: 1px;}
 
-#login {padding-top: 10px;}
+#login,#user_info {padding: 0;}

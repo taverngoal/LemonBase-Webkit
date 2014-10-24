@@ -26,6 +26,8 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.Account_Submit = function (account) {
             clientService.account_add(account, function () {
                 $scope.ReloadList();
+                account = {};
+                $scope.Account_Add_Close();
             });
         };
 
@@ -59,6 +61,8 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.Account_Detail_Submit = function (detail) {
             clientService.account_detail_add($scope.account.id, detail, function () {
                 $scope.reload();
+                $scope.account = {};
+                $scope.Account_Detail_Add_Close();
             });
         };
 

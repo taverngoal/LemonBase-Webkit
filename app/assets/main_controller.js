@@ -20,15 +20,16 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                     return rejection || $q.when(rejection);
                 },
                 responseError: function (rejection) {
-                    //一次请求一次回应
-                    $rootScope.on_request.pop();
-                    $rootScope.on_request_error.push(rejection);
-
-
                     if (rejection.status == 401)
                         $location.path("/setting");
                     else if (rejection.status == 403)
                         $location.path("/client/forbidden");
+                    else if (rejection.status == 400)
+                        rejection.message = rejection.data.error;
+
+                    //一次请求一次回应
+                    $rootScope.on_request.pop();
+                    $rootScope.on_request_error.push(rejection);
                     return $q.reject(rejection);
                 }
 
@@ -61,9 +62,18 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         $scope.lang = simpleStorage.get('lang') || 'en';
         $scope.i18n = clientService.config.i18n[$scope.lang];
 
+
+        $scope.ErrorClick = function () {
+            $scope.on_request_error.pop();
+        };
+
         $scope.ClientTest = function () {
-            clientService.test(function (content) {
-                if (content.success) $rootScope.user.logined = true;
+            clientService.login(function (content) {
+                if (content.success) {
+                    $rootScope.user.logined = true;
+                    $rootScope.user.obj = content.user;
+                    console.log(content)
+                }
             })
         };
 
@@ -321,17 +331,36 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
     ])
     .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
         $rootScope.module = "setting";
+
+        $scope.ReloadUser = function () {
+            clientService.login(function (content) {
+                $scope.user_info = content.user;
+            })
+        };
+        $scope.ReloadUser();
+        $scope.user_info = angular.copy($rootScope.user.obj);
+
+        $scope.UserChange = function (user) {
+            clientService.user_info_change(user, function () {
+                $scope.ReloadUser();
+            })
+        };
+
         $scope.UserSave = function (user, server) {
             if ($rootScope.user.logined) {
                 $rootScope.user.logined = false;
+                $rootScope.user.obj = {};
                 $rootScope.server.status = -1;
             }
             else {
                 $rootScope.user = user;
                 simpleStorage.set("user", user);
                 simpleStorage.set("server", server);
-                clientService.test(function (content) {
-                    if (content.success) $rootScope.user.logined = true;
+                clientService.login(function (content) {
+                    if (content.success) {
+                        $rootScope.user.logined = true;
+                        $rootScope.user.obj = content.user;
+                    }
                 })
             }
         }

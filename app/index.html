@@ -36,8 +36,9 @@
     <header>
 
         <ul class="actionbar-left">
-            <li><a href="javascript:history.back()"><i class="fa fa-arrow-left fa-lg"></i></a></li>
-            <li><a href="javascript:history.forward()"><i class="fa fa-arrow-right fa-lg"></i></a></li>
+            <li><a href="#/setting"><i class="fa fa-user "></i> {{user.obj.name}}</a></li>
+            <li><a href="javascript:history.back()"><i class="fa fa-arrow-left "></i></a></li>
+            <li><a href="javascript:history.forward()"><i class="fa fa-arrow-right"></i></a></li>
         </ul>
         <ul class="actionbar-right">
             <li ng-click="ThemeChange('default')"
@@ -70,19 +71,20 @@
                         class="fa fa-book fa-fw"></i>&nbsp;{{i18n.account_details}}</a></li>
             </ul>
 
-            <ul id="status" class="nav nav-pills nav-stacked" role="tablist">
-                <li class="normal" ng-hide="on_request_error.length>0">
-                    <a><i class="fa"
-                          ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i></a>
-                </li>
-                <li class="error">
-                    <a><i class="fa fa-exclamation fw"></i><span class="info">Some Wrong</span></a></li>
-            </ul>
         </div>
 
         <div class="col-sm-9" id="Content" ng-view></div>
     </section>
     <footer>
+        <ul id="status" class="nav nav-pills nav-stacked" role="tablist">
+            <li class="normal" ng-hide="on_request_error.length>0">
+                <a><i class="fa"
+                      ng-class="{'fa-spinner fa-spin':on_request.length>0,' fa-check': on_request.length==0}"></i></a>
+            </li>
+            <li class="error" ng-show="on_request_error.length>0" ng-click="ErrorClick()">
+                <a><i class="fa fa-exclamation fw"></i> <span class="info">{{i18n.status_code[on_request_error[0].status]}} {{on_request_error[0].message}}</span></a>
+            </li>
+        </ul>
     </footer>
 </div>
 </body>

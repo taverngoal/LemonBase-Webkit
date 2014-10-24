@@ -4,13 +4,22 @@
 angular.module("LemonerService", ["ngResource"])
     .service("clientService", ['$resource', "$rootScope", function ($resource, $rootScope) {
         this.resource = function () {
-            return $resource($rootScope.server.location + "/:path", {path: "@path"});
+            return $resource($rootScope.server.location + "/:path", {path: "@path"}, {
+                put: {method: 'put'}
+            });
         };
-        this.test = function (cb) {
-            return this.resource().get({path: 'api/test'}, cb, function (info) {
+        this.login = function (cb) {
+            return this.resource().get({path: 'api/login'}, cb, function (info) {
                 $rootScope.user.logined = false;
+                $rootScope.user.obj = {};
                 $rootScope.server.status = info.status;
             });
+        };
+
+
+        this.user_info_change = function (user, cb) {
+            user.path = 'api/users/' + user.id;
+            return this.resource().put(user, cb);
         };
 
         this.account_detail_add = function (accountid, detail, cb) {
@@ -94,6 +103,8 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': '用密码登录',
                     'connect with key file': '用密钥文件登录',
                     setting: '设置',
+                    server_setting: "服务器设置",
+                    user_info_setting: "用户信息修改",
                     login: '登录',
                     logout: '注销',
                     save: '保存',
@@ -102,6 +113,7 @@ angular.module("LemonerService", ["ngResource"])
                     status_code: {
                         '-1': '',
                         '0': '服务器不存在',
+                        '400': '错误请求',
                         '401': '帐号不存在或密码错误',
                         '403': '权限不够',
                         '500': '服务器繁忙',
@@ -123,6 +135,17 @@ angular.module("LemonerService", ["ngResource"])
                         purpose: '用途',
                         date: '入账日期',
                         memo: '备注'
+                    },
+                    User: {
+                        email: '电子邮件',
+                        password: '密码',
+                        password_tip: "不修改密码请留空",
+                        name: "姓名",
+                        nick: "昵称",
+                        birth: "生日",
+                        addr: "住址",
+                        phone: "电话",
+                        show_pass: "显示密码"
                     }
                 },
                 "en": {
@@ -138,6 +161,8 @@ angular.module("LemonerService", ["ngResource"])
                     'connect with password': 'Connect With Password',
                     'connect with key file': 'Connect With Key File',
                     setting: 'Setting',
+                    server_setting: "Server Setting",
+                    user_info_setting: "User Self Edit",
                     login: 'Login',
                     logout: 'Logout',
                     save: 'Save',
@@ -146,6 +171,7 @@ angular.module("LemonerService", ["ngResource"])
                     status_code: {
                         '-1': '',
                         '0': 'Location Error',
+                        '400': 'Bad Request',
                         '401': 'Unauthorized',
                         '403': 'Forbidden',
                         '500': 'Server Busy',
@@ -167,6 +193,17 @@ angular.module("LemonerService", ["ngResource"])
                         purpose: 'Purpose',
                         date: 'Date',
                         memo: 'Memo'
+                    },
+                    User: {
+                        email: 'Email',
+                        password: 'Password',
+                        password_tip: "Keep empty if you won't change it",
+                        name: "Name",
+                        nick: "Nick",
+                        birth: "Birth",
+                        addr: "Address",
+                        phone: "Phone",
+                        show_pass: "Show Password"
                     }
                 }
 
