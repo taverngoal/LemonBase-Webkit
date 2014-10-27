@@ -8,89 +8,17 @@ angular.module("LemonerService", ["ngResource"])
                 put: {method: 'put'}
             });
         };
-        this.login = function (cb) {
-            return this.resource().get({path: 'api/login'}, cb, function (info) {
-                $rootScope.user.logined = false;
-                $rootScope.user.obj = {};
-                $rootScope.server.status = info.status;
-            });
-        };
-
+//        this.login = function (cb) {
+//            return this.resource().get({path: 'api/login'}, cb, function (info) {
+//                $rootScope.user.logined = false;
+//                $rootScope.user.obj = {};
+//                $rootScope.server.status = info.status;
+//            });
+//        };
 
         this.user_info_change = function (user, cb) {
             user.path = 'api/users/' + user.id;
             return this.resource().put(user, cb);
-        };
-
-        this.account_get = function (id, cb) {
-            return this.resource().get({path: 'api/accounts/' + id}, cb);
-        };
-
-        this.account_detail_add = function (accountid, detail, cb) {
-            detail.path = 'api/accounts/' + accountid + "/details";
-            return this.resource().save(detail, cb)
-        };
-
-        this.account_add = function (account, cb) {
-            account.path = 'api/accounts';
-            return this.resource().save(account, cb);
-        };
-
-        this.account_chart = function (ctx, data) {
-            var sum = [], amount = [], date = [];
-            angular.forEach(data, function (obj) {
-                sum.unshift(obj.sum);
-                amount.unshift(obj.amount);
-                date.unshift(obj.created_at.substr(5, 5));
-            });
-
-            var lineChartData = {
-                labels: date,
-                datasets: [
-                    {
-                        label: "入账金额",
-                        labelColor: 'red',
-                        labelFontSize: '16',
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: sum
-                    },
-                    {
-                        label: "总金额",
-                        fillColor: "rgba(151,187,205,0.2)",
-                        strokeColor: "rgba(151,187,205,1)",
-                        pointColor: "rgba(151,187,205,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: amount
-                    }
-                ]
-            };
-
-            return new Chart(ctx).Line(lineChartData, {
-                responsive: true
-            });
-        };
-
-        this.account_list = function (page, count, cb) {
-            page = page || 0;
-            count = count || 20;
-            return this.resource().query({path: 'api/accounts', page: page, count: count}, cb)
-        };
-
-        this.account = function (id, cb) {
-            return this.resource().get({path: "api/accounts/" + id}, cb);
-        };
-
-        this.account_details = function (id, page, count, cb) {
-            page = page || 0;
-            count = count || 20;
-            return this.resource().query({path: 'api/accounts/' + id + "/details", page: page, count: count}, cb)
         };
         this.config = {
             i18n: {
@@ -215,5 +143,121 @@ angular.module("LemonerService", ["ngResource"])
 
             }
 
+        }
+    }])
+    .service("accountService", ['$resource', '$rootScope', function ($resource, $rootScope) {
+        this.resource = $resource($rootScope.server.location + "/api/accounts/:id", {id: "@id"});
+
+        this.all = function (page, count, cb, err) {
+            page = page || 0;
+            count = count || 20;
+            return this.resource.query({page: page, count: count}, cb, err);
+        };
+
+        this.save = function (account, success, err) {
+            return this.resource.save(account, success, err);
+        };
+
+
+        this.get = function (id, sc, err) {
+            var account = this.resource.get({id: id}, function (content, headers) {
+                account.details = {
+                    resource: $resource($rootScope.server.location + "/api/accounts/" + id + "/details/:detail_id", {detail_id: '@id'}),
+
+                    add: function (detail, sc, err) {
+                        return this.resource.save(detail, sc, err);
+                    },
+                    all: function (page, count, sc, err) {
+                        page = page || 0;
+                        count = count || 20;
+                        return this.resource.query({page: page, count: count}, sc, err);
+                    },
+                    get: function (id, sc, err) {
+                        return this.resource.get({id: id}, sc, err);
+                    }
+                };
+                sc(content, headers);
+            }, err);
+            return account;
+        };
+
+        this.account_chart = function (ctx, data) {
+            var sum = [], amount = [], date = [];
+            angular.forEach(data, function (obj) {
+                sum.unshift(obj.sum);
+                amount.unshift(obj.amount);
+                date.unshift(obj.created_at.substr(5, 5));
+            });
+
+            var lineChartData = {
+                labels: date,
+                datasets: [
+                    {
+                        label: "入账金额",
+                        labelColor: 'red',
+                        labelFontSize: '16',
+                        fillColor: "rgba(220,220,220,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: sum
+                    },
+                    {
+                        label: "总金额",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: amount
+                    }
+                ]
+            };
+
+            return new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
+        };
+    }])
+    .service("userService", ['$resource', '$rootScope', function ($resource, $rootScope) {
+        this.resource = function () {
+            return  $resource($rootScope.server.location + "/api/users/:id", {id: "@id"}, {
+                login: {method: 'get', url: $rootScope.server.location + "/api/users/login"}
+            })
+        };
+        var $this = this;
+        this.login = function (sc, err) {
+            return this.resource().login({}, sc, function (info) {
+                $rootScope.user.logined = false;
+                $rootScope.user.obj = {};
+                $rootScope.server.status = info.status;
+            });
+        };
+
+        this.all = function (page, count, sc, err) {
+            page = page || 0;
+            count = count || 20;
+            return this.resource().query({page: page, count: count}, sc, err);
+        };
+
+        this.save = function (user, sc, err) {
+            return this.resource().save(user, sc, err);
+        };
+
+        this.get = function (id, sc, err) {
+            return this.resource().get({id: id}, function (content, header) {
+                content.remove = function (sc, err) {
+                    return $this.remove(id, sc, err);
+                };
+                sc(content, header);
+            }, err)
+
+        };
+
+        this.remove = function (id, sc, err) {
+            return this.resource().remove({id: id}, sc, err);
         }
     }]);

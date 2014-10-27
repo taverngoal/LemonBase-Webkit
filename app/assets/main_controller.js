@@ -54,7 +54,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 controller: 'setting'
             })
     }])
-    .controller("Home", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
+    .controller("Home", ["$scope", "$rootScope", "clientService", "userService", function ($scope, $rootScope, clientService, userService) {
         $rootScope.user = simpleStorage.get("user") || {username: "", psd: "", logined: false};
         $rootScope.server = simpleStorage.get("server") || {location: 'http://lemoner.info'};
         $scope.themes = {'default': 'default.css', dark: 'black_orange.css'};
@@ -68,7 +68,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         };
 
         $scope.ClientTest = function () {
-            clientService.login(function (content) {
+            userService.login(function (content) {
                 if (content.success) {
                     $rootScope.user.logined = true;
                     $rootScope.user.obj = content.user;
@@ -328,11 +328,14 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         }
     }
     ])
-    .controller("setting", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
+    .controller("setting", ["$scope", "$rootScope", "clientService", "userService", function ($scope, $rootScope, clientService, userService) {
         $rootScope.module = "setting";
 
+        userService.login(function (content) {
+        });
+
         $scope.ReloadUser = function () {
-            clientService.login(function (content) {
+            userService.login(function (content) {
                 $scope.user_info = content.user;
                 $scope.user_info.pass_type = 'password';
             })
@@ -355,7 +358,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 $rootScope.user = user;
                 simpleStorage.set("user", user);
                 simpleStorage.set("server", server);
-                clientService.login(function (content) {
+                userService.login(function (content) {
                     if (content.success) {
                         $rootScope.user.logined = true;
                         $rootScope.user.obj = content.user;

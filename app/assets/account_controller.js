@@ -13,10 +13,16 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
                 controller: 'accountdetails'
             })
     }])
-    .controller("account", ["$scope", "$rootScope", "clientService", function ($scope, $rootScope, clientService) {
+    .controller("account", ["$scope", "$rootScope", "accountService", function ($scope, $rootScope, accountService) {
         $rootScope.module = "account";
+
+        $scope.accounts = accountService._all;
+
+        $scope.account = new accountService.resource({});
+        console.log($scope.account);
+
         $scope.ReloadList = function () {
-            clientService.account_list(0, 20, function (content, headersFun) {
+            accountService.all(0, 20, function (content, headersFun) {
                 $scope.headers = headersFun();
                 $scope.accounts = content;
             });
@@ -24,14 +30,16 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.ReloadList();
 
         $scope.Account_Submit = function (account) {
-
-
-            if (!account)
-                clientService.account_add(account, function () {
-                    $scope.ReloadList();
-                    account = {};
-                    $scope.Account_Add_Close();
-                });
+            $scope.account.$save(function () {
+                $scope.ReloadList();
+                account = {};
+                $scope.Account_Add_Close();
+            });
+//            accountService.save(account, function () {
+//                $scope.ReloadList();
+//                account = {};
+//                $scope.Account_Add_Close();
+//            });
         };
 
         $scope.Account_Pre_Add = function () {
@@ -45,34 +53,34 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         };
 
         $scope.Account_Edit_Pre = function (id) {
-            $scope.account = clientService.account_get(id, function (content) {
+            $scope.account = accountService.get(id, function (content) {
                 content.amount = Number(content.amount)
                 $("#account .well").slideDown();
             })
         }
     }])
-    .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {
+    .controller("accountdetails", ["$scope", "$rootScope", "$routeParams", "accountService", function ($scope, $rootScope, $routeParams, accountService) {
         $rootScope.module = "accountdetails";
         $scope.id = $routeParams.id;
         //获取账户详细
         $scope.reload = function () {
-            clientService.account_details($routeParams.id, 0, 20, function (content) {
-                $scope.details = content;
-                if ($scope.graph) $scope.graph.destroy();
-                var canvas = document.getElementById("canvas").getContext("2d");
-                $scope.graph = clientService.account_chart(canvas, content);
-            });
-
-            $scope.account = clientService.account($scope.id, function () {
+            $scope.account = accountService.get($scope.id, function () {
+                $scope.account.details.all(0, 20, function (content) {
+                    $scope.details = content;
+                    if ($scope.graph) $scope.graph.destroy();
+                    var canvas = document.getElementById("canvas").getContext("2d");
+                    $scope.graph = accountService.account_chart(canvas, content);
+                });
             });
         };
         $scope.reload();
 
         $scope.Account_Detail_Submit = function (detail) {
-            clientService.account_detail_add($scope.account.id, detail, function () {
+            $scope.account.details.add(detail, function () {
                 $scope.reload();
                 detail = {};
                 $scope.Account_Detail_Add_Close();
+
             });
         };
 
