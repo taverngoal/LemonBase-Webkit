@@ -24,11 +24,14 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.ReloadList();
 
         $scope.Account_Submit = function (account) {
-            clientService.account_add(account, function () {
-                $scope.ReloadList();
-                account = {};
-                $scope.Account_Add_Close();
-            });
+
+
+            if (!account)
+                clientService.account_add(account, function () {
+                    $scope.ReloadList();
+                    account = {};
+                    $scope.Account_Add_Close();
+                });
         };
 
         $scope.Account_Pre_Add = function () {
@@ -39,6 +42,13 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.Account_Add_Close = function () {
             $scope.account_show = false;
             $("#account .well").slideUp();
+        };
+
+        $scope.Account_Edit_Pre = function (id) {
+            $scope.account = clientService.account_get(id, function (content) {
+                content.amount = Number(content.amount)
+                $("#account .well").slideDown();
+            })
         }
     }])
     .controller("accountdetails", ["$scope", "$rootScope", "clientService", "$routeParams", function ($scope, $rootScope, clientService, $routeParams) {

@@ -334,10 +334,10 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
         $scope.ReloadUser = function () {
             clientService.login(function (content) {
                 $scope.user_info = content.user;
+                $scope.user_info.pass_type = 'password';
             })
         };
         $scope.ReloadUser();
-        $scope.user_info = angular.copy($rootScope.user.obj);
 
         $scope.UserChange = function (user) {
             clientService.user_info_change(user, function () {

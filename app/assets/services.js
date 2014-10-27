@@ -22,6 +22,10 @@ angular.module("LemonerService", ["ngResource"])
             return this.resource().put(user, cb);
         };
 
+        this.account_get = function (id, cb) {
+            return this.resource().get({path: 'api/accounts/' + id}, cb);
+        };
+
         this.account_detail_add = function (accountid, detail, cb) {
             detail.path = 'api/accounts/' + accountid + "/details";
             return this.resource().save(detail, cb)
@@ -110,6 +114,7 @@ angular.module("LemonerService", ["ngResource"])
                     save: '保存',
                     submit: '提交',
                     server_path: ' 服务器路径',
+                    required: '必填',
                     status_code: {
                         '-1': '',
                         '0': '服务器不存在',
@@ -168,6 +173,7 @@ angular.module("LemonerService", ["ngResource"])
                     save: 'Save',
                     submit: 'Submit',
                     server_path: 'Server Location',
+                    required: 'Required',
                     status_code: {
                         '-1': '',
                         '0': 'Location Error',

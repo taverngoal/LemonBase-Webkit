@@ -37,7 +37,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">{{i18n.user_info_setting}}</div>
         <div class="panel-body">
-            <form role="form">
+            <form role="form" name="user_info_form">
                 <div class="form-group">
                     <label for="email">{{i18n.User.email}}</label>
                     <input type="email" class="form-control" id="email_info" ng-model="user_info.email" disabled>
@@ -45,12 +45,12 @@
                 <div class="form-group">
                     <label for="password">{{i18n.User.password}}</label>
                     <input type="{{user_info.pass_type}}" class="form-control" id="password" ng-model="user_info.password">
-
                     <p class="help-block">{{i18n.User.password_tip}}</p>
                 </div>
                 <div class="form-group">
                     <label for="name_info">{{i18n.User.name}}</label>
-                    <input type="text" class="form-control" id="name_info" ng-model="user_info.name">
+                    <input type="text" class="form-control" id="name_info" ng-model="user_info.name" required>
+                    <p class="help-block">{{i18n.required}}</p>
                 </div>
                 <div class="form-group">
                     <label for="nick_info">{{i18n.User.nick}}</label>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="birth_info">{{i18n.User.birth}}</label>
-                    <input type="text" class="form-control" id="birth_info" ng-model="user_info.birth">
+                    <input type="date" class="form-control" id="birth_info" ng-model="user_info.birth">
                 </div>
                 <div class="form-group">
                     <label for="addr_info">{{i18n.User.addr}}</label>
@@ -66,17 +66,16 @@
                 </div>
                 <div class="form-group">
                     <label for="tel_info">{{i18n.User.phone}}</label>
-                    <input type="text" class="form-control" id="tel_info" ng-model="user_info.phone">
+                    <input type="tel" class="form-control" id="tel_info" ng-model="user_info.phone">
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" ng-false-value="password" ng-true-value="text"
-                                   ng-init="user_info.pass_type='password'" ng-model="user_info.pass_type">{{i18n.User.show_pass}}
+                            <input type="checkbox" ng-false-value="password" ng-true-value="text" ng-model="user_info.pass_type">{{i18n.User.show_pass}}
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default" ng-click="UserChange(user_info)">{{i18n.submit}}</button>
+                <button type="submit" ng-disabled="user_info_form.$invalid" ng-class="{'btn-warning':user_info_form.$valid}" class="btn" ng-click="UserChange(user_info)">{{i18n.submit}}</button>
 
             </form>
         </div>
