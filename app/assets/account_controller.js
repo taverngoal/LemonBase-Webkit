@@ -16,15 +16,9 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
     .controller("account", ["$scope", "$rootScope", "accountService", function ($scope, $rootScope, accountService) {
         $rootScope.module = "account";
 
-        $scope.accounts = accountService._all;
-
-        $scope.account = new accountService.resource({});
-        console.log($scope.account);
-
         $scope.ReloadList = function () {
-            accountService.all(0, 20, function (content, headersFun) {
-                $scope.headers = headersFun();
-                $scope.accounts = content;
+            $scope.accounts = accountService.Account.query({page: 0, count: 20}, function (content, headers) {
+                $scope.headers = headers();
             });
         };
         $scope.ReloadList();
@@ -35,27 +29,22 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
                 account = {};
                 $scope.Account_Add_Close();
             });
-//            accountService.save(account, function () {
-//                $scope.ReloadList();
-//                account = {};
-//                $scope.Account_Add_Close();
-//            });
         };
 
         $scope.Account_Pre_Add = function () {
-            $scope.account = { is_public: false, amount: 0.00 };
+            $scope.account = new accountService.Account({ is_public: false, amount: 0.00 });
             $scope.account_show = true;
-            $("#account .well").slideDown();
+            $("#account").find(".well").slideDown();
         };
         $scope.Account_Add_Close = function () {
             $scope.account_show = false;
-            $("#account .well").slideUp();
+            $("#account").find(".well").slideUp();
         };
 
         $scope.Account_Edit_Pre = function (id) {
-            $scope.account = accountService.get(id, function (content) {
-                content.amount = Number(content.amount)
-                $("#account .well").slideDown();
+            $scope.account = accountService.Account.get({id: id}, function (content) {
+                content.amount = Number(content.amount);
+                $("#account").find(".well").slideDown();
             })
         }
     }])
@@ -80,7 +69,6 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
                 $scope.reload();
                 detail = {};
                 $scope.Account_Detail_Add_Close();
-
             });
         };
 

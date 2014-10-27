@@ -331,22 +331,28 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
     .controller("setting", ["$scope", "$rootScope", "clientService", "userService", function ($scope, $rootScope, clientService, userService) {
         $rootScope.module = "setting";
 
-        userService.login(function (content) {
-        });
-
-        $scope.ReloadUser = function () {
-            userService.login(function (content) {
-                $scope.user_info = content.user;
-                $scope.user_info.pass_type = 'password';
-            })
-        };
-        $scope.ReloadUser();
 
         $scope.UserChange = function (user) {
-            clientService.user_info_change(user, function () {
+            userService.save(user, function () {
                 $scope.ReloadUser();
+            });
+        };
+
+        $scope.login = function () {
+            userService.login(function (content) {
+                $scope.user_info = angular.copy(content.user);
+                $scope.user_info.pass_type = 'password';
+
+                if (content.success) {
+                    $rootScope.user.logined = true;
+                    $rootScope.user.obj = angular.copy(content.user);
+                }
             })
         };
+        $scope.ReloadUser = function () {
+            $scope.login();
+        };
+        $scope.ReloadUser();
 
         $scope.UserSave = function (user, server) {
             if ($rootScope.user.logined) {
@@ -358,12 +364,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 $rootScope.user = user;
                 simpleStorage.set("user", user);
                 simpleStorage.set("server", server);
-                userService.login(function (content) {
-                    if (content.success) {
-                        $rootScope.user.logined = true;
-                        $rootScope.user.obj = content.user;
-                    }
-                })
+                $scope.login();
             }
         }
     }])

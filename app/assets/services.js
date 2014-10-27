@@ -8,18 +8,6 @@ angular.module("LemonerService", ["ngResource"])
                 put: {method: 'put'}
             });
         };
-//        this.login = function (cb) {
-//            return this.resource().get({path: 'api/login'}, cb, function (info) {
-//                $rootScope.user.logined = false;
-//                $rootScope.user.obj = {};
-//                $rootScope.server.status = info.status;
-//            });
-//        };
-
-        this.user_info_change = function (user, cb) {
-            user.path = 'api/users/' + user.id;
-            return this.resource().put(user, cb);
-        };
         this.config = {
             i18n: {
                 "zh-cn": {
@@ -146,21 +134,10 @@ angular.module("LemonerService", ["ngResource"])
         }
     }])
     .service("accountService", ['$resource', '$rootScope', function ($resource, $rootScope) {
-        this.resource = $resource($rootScope.server.location + "/api/accounts/:id", {id: "@id"});
-
-        this.all = function (page, count, cb, err) {
-            page = page || 0;
-            count = count || 20;
-            return this.resource.query({page: page, count: count}, cb, err);
-        };
-
-        this.save = function (account, success, err) {
-            return this.resource.save(account, success, err);
-        };
-
+        this.Account = $resource($rootScope.server.location + "/api/accounts/:id", {id: "@id"});
 
         this.get = function (id, sc, err) {
-            var account = this.resource.get({id: id}, function (content, headers) {
+            var account = this.Account.get({id: id}, function (content, headers) {
                 account.details = {
                     resource: $resource($rootScope.server.location + "/api/accounts/" + id + "/details/:detail_id", {detail_id: '@id'}),
 
@@ -235,12 +212,6 @@ angular.module("LemonerService", ["ngResource"])
                 $rootScope.user.obj = {};
                 $rootScope.server.status = info.status;
             });
-        };
-
-        this.all = function (page, count, sc, err) {
-            page = page || 0;
-            count = count || 20;
-            return this.resource().query({page: page, count: count}, sc, err);
         };
 
         this.save = function (user, sc, err) {
