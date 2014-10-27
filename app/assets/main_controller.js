@@ -72,7 +72,6 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 if (content.success) {
                     $rootScope.user.logined = true;
                     $rootScope.user.obj = content.user;
-                    console.log(content)
                 }
             })
         };

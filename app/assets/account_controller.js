@@ -61,7 +61,7 @@ angular.module("LemonerClient", ["ngRoute", "LemonerService"])
         $scope.Account_Detail_Submit = function (detail) {
             clientService.account_detail_add($scope.account.id, detail, function () {
                 $scope.reload();
-                $scope.account = {};
+                detail = {};
                 $scope.Account_Detail_Add_Close();
             });
         };

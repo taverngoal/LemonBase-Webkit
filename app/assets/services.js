@@ -68,7 +68,7 @@ angular.module("LemonerService", ["ngResource"])
                 ]
             };
 
-            var chart = new Chart(ctx).Line(lineChartData, {
+            return new Chart(ctx).Line(lineChartData, {
                 responsive: true
             });
         };
