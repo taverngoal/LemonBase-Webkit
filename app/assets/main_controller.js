@@ -29,7 +29,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
 
                     //一次请求一次回应
                     $rootScope.on_request.pop();
-                    $rootScope.on_request_error.push(rejection);
+                    $rootScope.on_request_error[0] = rejection;
                     return $q.reject(rejection);
                 }
 
