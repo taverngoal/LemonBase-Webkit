@@ -7,7 +7,7 @@ body{
 ::-webkit-scrollbar-thumb { background: #444;}
 ::-webkit-scrollbar-thumb:window-inactive { background: #fff;}
 a{ color:#CC9900 }
-input { background: #336699 !important; font-size: 16px !important; color: #fefefe !important; border-color:#444!important; }
+input, .form-control { background: #336699; font-size: 16px !important; color: #fefefe !important; border-color:#444!important; }
 #status .normal {color:#CC9900;}
 #status .error {color:#b92c28;}
     #status .error .info { color:#b92c28; }
@@ -33,7 +33,7 @@ header .actionbar-left a{ color: #fefefe !important; }
 
 .table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{ border-color: #666 }
 
-input[disabled] { background: transparent !important; color:#eee; box-shadow: none}
+.panel.panel-primary .form-control input[disabled] { background: transparent !important; color:#eee; box-shadow: none}
 
 .text-danger{ color: #c9302c }
 .text-warning { color: #CC9900 }
@@ -42,5 +42,14 @@ input[disabled] { background: transparent !important; color:#eee; box-shadow: no
 .well { background: #444444; border:none; box-shadow: none }
 
 .panel.panel-primary { background: #336699; border:none;}
-.panel.panel-primary input { background: #eee!important; color:#444 !important; border:none }
+.panel.panel-primary input,.panel.panel-primary .form-control { background: #eee; color:#444 !important; border:none }
 .panel .help-block { color:#eea236 }
+
+
+.panel .table>thead>tr>th { text-align: center; background: #3399CC}
+.panel .table>tbody>tr>td { text-align: center}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{border-color: #fff;}
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline,
+.has-warning .help-block, .has-warning .control-label, .has-warning .radio, .has-warning .checkbox, .has-warning .radio-inline, .has-warning .checkbox-inline
+{color:inherit}
+.panel.panel-primary .has-error .form-control{ background: #CC6666 !important; color:#fff !important; }

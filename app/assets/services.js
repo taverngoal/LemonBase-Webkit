@@ -11,6 +11,7 @@ angular.module("LemonerService", ["ngResource"])
         this.config = {
             i18n: {
                 "zh-cn": {
+                    subnet: '子网计算器',
                     email: '电子邮件',
                     password: '密码',
                     account: '账户',
@@ -39,6 +40,16 @@ angular.module("LemonerService", ["ngResource"])
                         '403': '权限不够',
                         '500': '服务器繁忙',
                         '404': '服务器不存在'
+                    },
+                    Subnet: {
+                        "ip_range_title": "IP范围掩码",
+                        "cidr_subnet_title": "无类子网掩码",
+                        "subnet_mask_title": "子网掩码",
+                        start_ip: "起始IP",
+                        end_ip: "结束IP",
+                        ip: "IP地址",
+                        subnet_mask: "子网掩码",
+                        please_select: "请选择子网掩码"
                     },
                     Account: {
                         title: '账目名',
@@ -70,6 +81,7 @@ angular.module("LemonerService", ["ngResource"])
                     }
                 },
                 "en": {
+                    subnet: 'Subnet',
                     email: 'Email',
                     password: 'Password',
                     account: 'Account',
@@ -98,6 +110,16 @@ angular.module("LemonerService", ["ngResource"])
                         '403': 'Forbidden',
                         '500': 'Server Busy',
                         '404': 'Location Error'
+                    },
+                    Subnet: {
+                        "ip_range_title": "IP Range Mask Optimizer",
+                        "cidr_subnet_title": "CIDR Subnet Mask Calculator",
+                        "subnet_mask_title": "Subnet Mask Calculator",
+                        start_ip: "Start IP",
+                        end_ip: "End IP",
+                        ip: "IP Address",
+                        subnet_mask: "Subnet Mask",
+                        please_select: "Select Subnet Mask"
                     },
                     Account: {
                         title: 'Title',
@@ -201,7 +223,7 @@ angular.module("LemonerService", ["ngResource"])
     }])
     .service("userService", ['$resource', '$rootScope', function ($resource, $rootScope) {
         this.resource = function () {
-            return  $resource($rootScope.server.location + "/api/users/:id", {id: "@id"}, {
+            return $resource($rootScope.server.location + "/api/users/:id", {id: "@id"}, {
                 login: {method: 'get', url: $rootScope.server.location + "/api/users/login"}
             })
         };

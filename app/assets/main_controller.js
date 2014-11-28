@@ -49,6 +49,10 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 templateUrl: 'views/ping.html',
                 controller: 'Ping'
             })
+            .when('/subnet', {
+                templateUrl: 'views/subnet.html',
+                controller: 'Subnet'
+            })
             .when('/setting', {
                 templateUrl: 'views/setting.html',
                 controller: 'setting'
@@ -326,8 +330,7 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
             $interval.cancel(p.$handle);
             $scope.active_p = {};
         }
-    }
-    ])
+    }])
     .controller("setting", ["$scope", "$rootScope", "clientService", "userService", function ($scope, $rootScope, clientService, userService) {
         $rootScope.module = "setting";
 
@@ -366,6 +369,20 @@ angular.module("LemonerTerminal", ["ngRoute", "LemonerClient", "LemonerService"]
                 simpleStorage.set("server", server);
                 $scope.login();
             }
+        }
+    }])
+    .controller("Subnet", ["$scope", "$rootScope", function ($scope, $rootScope) {
+        $rootScope.module = "subnet";
+        $scope.range_submit = function (start_ip, end_ip) {
+            $scope.range_result = IpSubnetCalculator.calculate(start_ip, end_ip);
+        };
+
+        $scope.cidr_submit = function (ip, mask) {
+            $scope.cidr_result = IpSubnetCalculator.calculateSubnetMask(ip, mask)
+        };
+
+        $scope.ip_submit = function (ip, mask) {
+            $scope.ip_result = IpSubnetCalculator.calculateCIDRPrefix(ip, mask)
         }
     }])
 ;

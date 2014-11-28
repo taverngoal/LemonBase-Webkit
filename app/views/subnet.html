@@ -1,0 +1,168 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">{{i18n.Subnet.ip_range_title}}</div>
+    <div class="panel-body">
+        <form role="form" name="range_form">
+            <div class="form-group"
+                 ng-class="{'has-error':range_form.start_ip.$invalid&&range_form.start_ip.$dirty,'has-success':range_form.start_ip.$valid}">
+                <label for="start_ip">{{i18n.Subnet.start_ip}}</label>
+                <input type="text" class="form-control" id="start_ip" name="start_ip" ng-model="ip_range.start_ip"
+                       placeholder="e.g 0.0.0.0" required
+                       ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/">
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error':range_form.end_ip.$invalid&&range_form.end_ip.$dirty,'has-success':range_form.end_ip.$valid}">
+                <label for="end_ip">{{i18n.Subnet.end_ip}}</label>
+                <input type="text" class="form-control" id="end_ip" name="end_ip" ng-model="ip_range.end_ip"
+                       placeholder="e.g 255.255.255.254" required
+                       ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/">
+            </div>
+            <button type="submit" ng-click="range_submit(ip_range.start_ip,ip_range.end_ip)"
+                    ng-class="{'btn-default': range_form.$valid,'btn-danger':range_form.$invalid}"
+                    ng-disabled="range_form.$invalid"
+                    class="btn btn-default pull-left">{{i18n.submit}}
+            </button>
+        </form>
+    </div>
+
+    <table class="table" ng-show="range_result.length>0">
+        <thead>
+        <tr>
+            <th>IP Start</th>
+            <th>Prefix</th>
+            <th>Subnet Mask</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="d in range_result">
+            <td>{{d.ipLowStr}}</td>
+            <td>/{{d.prefixSize}}</td>
+            <td>{{d.prefixMaskStr}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">{{i18n.Subnet.cidr_subnet_title}}</div>
+    <div class="panel-body">
+        <form role="form" name="cidr_form">
+            <div class="form-group"
+                 ng-class="{'has-error':cidr_form.ip.$invalid&&cidr_form.ip.$dirty,'has-success':cidr_form.ip.$valid}">
+                <label for="cidr_ip">{{i18n.Subnet.ip}}</label>
+                <input type="text" class="form-control" id="cidr_ip" name="ip" ng-model="cidr.ip"
+                       placeholder="e.g 127.0.0.1"
+                       required
+                       ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/">
+            </div>
+            <div class="form-group">
+                <label for="cidr_mask">{{i18n.Subnet.subnet_mask}}</label>
+                <select class="form-control" id="cidr_mask" ng-model="cidr.mask" required>
+                    <option disabled selected>{{i18n.Subnet.please_select}}</option>
+                    <option value='24'>/24</option>
+                    <option value='16'>/16</option>
+                    <option value='8'>/8</option>
+                    <option disabled>----------------------</option>
+                    <option value='0'>/0</option>
+                    <option value='1'>/1</option>
+                    <option value='2'>/2</option>
+                    <option value='3'>/3</option>
+                    <option value='4'>/4</option>
+                    <option value='5'>/5</option>
+                    <option value='6'>/6</option>
+                    <option value='7'>/7</option>
+                    <option value='8'>/8</option>
+                    <option value='9'>/9</option>
+                    <option value='10'>/10</option>
+                    <option value='11'>/11</option>
+                    <option value='12'>/12</option>
+                    <option value='13'>/13</option>
+                    <option value='14'>/14</option>
+                    <option value='15'>/15</option>
+                    <option value='16'>/16</option>
+                    <option value='17'>/17</option>
+                    <option value='18'>/18</option>
+                    <option value='19'>/19</option>
+                    <option value='20'>/20</option>
+                    <option value='1'>/21</option>
+                    <option value='2'>/22</option>
+                    <option value='3'>/23</option>
+                    <option value='4'>/24</option>
+                    <option value='5'>/25</option>
+                    <option value='6'>/26</option>
+                    <option value='7'>/27</option>
+                    <option value='8'>/28</option>
+                    <option value='9'>/29</option>
+                    <option value='0'>/20</option>
+                    <option value='1'>/31</option>
+                    <option value='2'>/32</option>
+                </select>
+
+            </div>
+            <button type="submit" ng-click="cidr_submit(cidr.ip,cidr.mask)" ng-disabled="cidr_form.$invalid"
+                    ng-class="{'btn-default': cidr_form.$valid,'btn-danger':cidr_form.$invalid}"
+                    class="btn btn-default pull-left">{{i18n.submit}}
+            </button>
+        </form>
+    </div>
+    <table class="table" ng-show="cidr_result">
+        <thead>
+        <tr>
+            <th>IP Start</th>
+            <th>IP End</th>
+            <th>Subnet Mask</th>
+            <th>Prefix Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{cidr_result.ipLowStr}}</td>
+            <td>{{cidr_result.ipHighStr}}</td>
+            <td>{{cidr_result.prefixMaskStr}}</td>
+            <td>{{cidr_result.prefixSize}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">{{i18n.Subnet.subnet_mask_title}}</div>
+    <div class="panel-body">
+        <form role="form" name="ip_form">
+            <div class="form-group"
+                 ng-class="{'has-error':ip_form.ip.$invalid&&ip_form.ip.$dirty,'has-success':ip_form.ip.$valid}">
+                <label for="ip">{{i18n.Subnet.ip}}</label>
+                <input type="text" class="form-control" id="ip" ng-model="ip.ip" name="ip"
+                       placeholder="e.g 127.0.0.1" required
+                       ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/">
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error':ip_form.ip_mask.$invalid&&ip_form.ip_mask.$dirty,'has-success':ip_form.ip_mask.$valid}">
+                <label for="mask">{{i18n.Subnet.subnet_mask}}</label>
+                <input type="text" class="form-control" id="mask" ng-model="ip.mask" name="ip_mask"
+                       placeholder="e.g 255.255.255.0" required
+                       ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/">
+            </div>
+            <button type="submit" ng-click="ip_submit(ip.ip,ip.mask)" ng-disabled="ip_form.$invalid"
+                    ng-class="{'btn-default': ip_form.$valid,'btn-danger':ip_form.$invalid}"
+                    class="btn btn-default pull-left">{{i18n.submit}}
+            </button>
+        </form>
+    </div>
+    <table class="table" ng-show="ip_result">
+        <thead>
+        <tr>
+            <th>IP Start</th>
+            <th>IP End</th>
+            <th>Subnet Mask</th>
+            <th>Prefix Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ip_result.ipLowStr}}</td>
+            <td>{{ip_result.ipHighStr}}</td>
+            <td>{{ip_result.prefixMaskStr}}</td>
+            <td>{{ip_result.prefixSize}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
